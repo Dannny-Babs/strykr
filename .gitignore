@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# media (prevent committing large video assets)
+public/**/*.mp4
+public/**/*.mov
+public/**/*.avi
+public/**/*.mkv
