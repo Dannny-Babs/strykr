@@ -55,14 +55,15 @@ export default function Home() {
 
         {/* Video Section */}
         <section id="video" className="mt-16">
-          <div className="mt-6">
-            <video
-              className="w-full rounded-xl border border-neutral-200"
-              src="https://www.youtube.com/watch?v=OhWvYUazTiw"
-              autoPlay              
-              loop
-              playsInline
-              controls
+          <div className="mt-6 aspect-[16/9] w-full rounded-xl border border-neutral-200 overflow-hidden">
+            <iframe
+              className="h-full w-full"
+              src="https://www.youtube.com/embed/OhWvYUazTiw?autoplay=1&mute=1&playsinline=1&controls=1&rel=0"
+              title="STRYKR Demo"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
             />
           </div>
         </section>
