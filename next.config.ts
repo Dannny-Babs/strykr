@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "img.baba-blog.com",
       },
+      {
+        protocol: "https",
+        hostname: "www.youtube.com",
+      },
     ],
   },
   typescript: {

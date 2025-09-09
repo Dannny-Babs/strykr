@@ -3,6 +3,21 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="font-sans min-h-screen bg-white text-[#171717]">
+      <header className="border-b border-neutral-200">
+        <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-lg font-extrabold tracking-tight">STRYKR</span>
+          </div>
+          <nav className="hidden md:flex items-center gap-6 text-sm">
+            <a href="#features" className="hover:text-black">Features</a>
+            <a href="#video" className="hover:text-black">Video</a>
+            <a href="#pricing" className="hover:text-black">Pricing</a>
+          </nav>
+          <div className="flex items-center gap-3">
+            <a href="#buy" className="inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 text-sm font-semibold shadow-sm hover:bg-neutral-800">Buy Now</a>
+          </div>
+        </div>
+      </header>
       <main className="mx-auto max-w-7xl px-6 py-16 md:py-24">
         {/* Brand Name */}
         <div className="mb-8">
@@ -43,9 +58,8 @@ export default function Home() {
           <div className="mt-6">
             <video
               className="w-full rounded-xl border border-neutral-200"
-              src="/0909.mp4"
-              autoPlay
-              muted
+              src="https://www.youtube.com/watch?v=OhWvYUazTiw"
+              autoPlay              
               loop
               playsInline
               controls
