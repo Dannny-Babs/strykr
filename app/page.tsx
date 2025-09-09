@@ -24,8 +24,8 @@ export default function Home() {
         }
         <section className="mt-6 grid gap-6 md:grid-cols-2 md:items-center">
           <div>
-            <h2 className="text-3xl md:text-5xl font-semibold leading-tight">Train Like the <br />
-              Pros. Anytime. Anywhere.</h2>
+            <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-slate-500">Train Like the <br />
+             <strong className="text-black font-semibold">Pros. Anytime. Anywhere.</strong></h2>
             <p className="mt-4 text-lg text-neutral-700">With STRYKR, the VR-powered smart baseball tracker, your practice is no longer just reps—it’s precision, feedback, and progress you can measure.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="#buy" className="inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 text-sm font-semibold shadow-sm hover:bg-neutral-800">Buy Now — $299.99</a>
