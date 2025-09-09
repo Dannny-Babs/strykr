@@ -19,12 +19,7 @@ export default function Home() {
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-        {/* Brand Name */}
-        <div className="mb-8">
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight md:text-6xl">STRYKR</h1>
-
-        </div>
-
+       
         {/* Hero Section */
         }
         <section className="mt-6 grid gap-6 md:grid-cols-2 md:items-center">
