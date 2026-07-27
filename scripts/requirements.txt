@@ -2,3 +2,11 @@ crawl4ai==0.4.246
 playwright==1.49.1
 httpx==0.25.2
 pdfplumber==0.11.7
+
+# nlp pipeline (scripts/nlp/)
+sentence-transformers==2.7.0
+transformers==4.35.2
+torch==2.1.1
+scikit-learn==1.7.2
+numpy==1.24.3
+nltk==3.9.1

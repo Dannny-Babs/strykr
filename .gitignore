@@ -46,6 +46,7 @@ public/**/*.mov
 public/**/*.avi
 public/**/*.mkv
 
-# python crawl script scratch output
+# python crawl/nlp script scratch output
 scripts/crawl_output/
+scripts/nlp_output/
 __pycache__/

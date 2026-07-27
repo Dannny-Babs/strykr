@@ -36,7 +36,7 @@ the low-risk, high-signal sources in the source-acquisition plan. Deliberately
 excludes LinkedIn/Facebook/Reddit/YouTube: those carry ToS/legal risk (LinkedIn
 and Meta prohibit scraping without permission) and rank lowest priority.
 
-- `lib/sources.ts` — the source registry (18 verified URLs across 4 categories).
+- `lib/sources.ts` — the source registry (19 verified URLs across 4 categories).
 - `lib/taxonomy.ts` — the pain-signal taxonomy used to tag findings.
 - `lib/collector.ts` + `app/api/collect/route.ts` — fetch logic that refreshes
   the corpus live. Requires normal outbound internet access (works on a real
@@ -50,6 +50,36 @@ and Meta prohibit scraping without permission) and rank lowest priority.
   text), and regex-checks specific claims from `research-findings.json`
   against the live source text. Run with `python scripts/crawl_sources.py`;
   output lands in `scripts/crawl_output/` (gitignored).
+
+## NLP analysis
+
+`/analysis` renders the "Analytics and NLP methods" layer from the
+deep-research report — embeddings, deduplication, density clustering,
+zero-shot taxonomy classification, and sentiment — run against the crawled
+corpus. Scoped to what's actually installed rather than pulling in
+BERTopic/UMAP/HDBSCAN for a corpus this size:
+
+- `scripts/nlp/chunking.py` — cleans Crawl4AI markdown (strips links, PDF
+  page-number/header artifacts) and splits into paragraph chunks, dropping
+  nav/breadcrumb text and low-stopword-ratio junk (catches PDF text-extraction
+  artifacts like reversed/rotated chart labels).
+- `scripts/nlp/pipeline.py` — embeds with `sentence-transformers/all-MiniLM-L6-v2`,
+  dedupes near-identical chunks (cosine similarity), clusters with DBSCAN
+  (cosine, density-based — no fixed cluster count), zero-shot classifies
+  against the pain taxonomy with a small NLI cross-encoder (entailment
+  framing, not a fine-tuned model — matches the report's own recommendation
+  to start with zero-shot before weak supervision), and scores sentiment with
+  NLTK's VADER. Run with `python scripts/nlp/pipeline.py`; output lands in
+  `scripts/nlp_output/` (gitignored).
+- `scripts/nlp/build_app_summary.py` — distills that output into
+  `data/nlp-analysis.json` (committed), after one manual QA pass: 2 of 6
+  zero-shot-tagged chunks turned out to be nav artifacts the automatic filter
+  missed, excluded by hand rather than shipped as findings.
+
+The `/analysis` page also documents known limitations directly (narrow-corpus
+zero-shot precision, VADER's poor fit for non-social-media text, the eps
+tuning DBSCAN needed) — this is a first-pass instrument, not a finished
+classifier, consistent with the deep-research report's own methodology.
 
 ## Getting Started
 

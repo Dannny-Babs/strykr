@@ -24,7 +24,10 @@ export default function ResearchPage() {
       <header className="border-b border-neutral-200">
         <div className="mx-auto max-w-5xl px-6 h-16 flex items-center justify-between">
           <Link href="/" className="text-lg font-extrabold tracking-tight">DealerSync</Link>
-          <Link href="/" className="text-sm hover:text-black">Back to home</Link>
+          <nav className="flex items-center gap-6 text-sm">
+            <Link href="/analysis" className="hover:text-black">NLP Analysis</Link>
+            <Link href="/" className="hover:text-black">Back to home</Link>
+          </nav>
         </div>
       </header>
       <main className="mx-auto max-w-5xl px-6 py-16">
