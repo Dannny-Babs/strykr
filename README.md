@@ -43,6 +43,13 @@ and Meta prohibit scraping without permission) and rank lowest priority.
   deploy target like Vercel; will fail in network-sandboxed environments).
 - `data/research-findings.json` — the current seeded findings, captured and
   verified manually, that back the `/research` page today.
+- `scripts/crawl_sources.py` — a standalone Crawl4AI verification script (see
+  `scripts/requirements.txt`). Crawls the same source registry, extracts
+  clean markdown (with a `pdfplumber` fallback for direct PDF links, since
+  Crawl4AI's browser strategy can't read Chromium's built-in PDF viewer as
+  text), and regex-checks specific claims from `research-findings.json`
+  against the live source text. Run with `python scripts/crawl_sources.py`;
+  output lands in `scripts/crawl_output/` (gitignored).
 
 ## Getting Started
 

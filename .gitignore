@@ -45,3 +45,7 @@ public/**/*.mp4
 public/**/*.mov
 public/**/*.avi
 public/**/*.mkv
+
+# python crawl script scratch output
+scripts/crawl_output/
+__pycache__/

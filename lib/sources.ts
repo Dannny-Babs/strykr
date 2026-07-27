@@ -80,6 +80,15 @@ export const SOURCES: Source[] = [
     notes: "Dealer-facing walkthrough of the reporting workflow.",
   },
   {
+    id: "auditor-general-omvic-2021-full-report",
+    category: "government",
+    label: "Auditor General of Ontario — Value-for-Money Audit: OMVIC (2021, full report)",
+    url: "https://www.auditor.on.ca/en/content/annualreports/arreports/en21/AR_OMVIC_en21.pdf",
+    risk: "low",
+    cadence: "annual",
+    notes: "Primary source for the under-reporting stat: 25% (170/670) of dealers reviewed under-reported ~9,000 transactions in 2019, ~$90,000 underpaid.",
+  },
+  {
     id: "auditor-general-omvic-followup-2023",
     category: "government",
     label: "Auditor General of Ontario — OMVIC Follow-Up (2023, Ch. 3.04)",
