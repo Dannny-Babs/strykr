@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "STRYKR – VR-Powered Smart Baseball Tracker",
+  title: "DealerSync – VIN-Level Transaction Reconciliation",
   description:
-    "Train like the pros. STRYKR combines VR, AI insights, and precision motion tracking for smarter baseball practice.",
+    "DealerSync reconciles a dealer's DMS, accounting, and bills of sale into one defensible OMVIC Transaction Fee Register — so you stop overpaying and walk into an audit with proof, not paperwork.",
 };
 
 export default function RootLayout({

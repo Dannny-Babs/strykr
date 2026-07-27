@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -6,136 +6,135 @@ export default function Home() {
       <header className="border-b border-neutral-200">
         <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-lg font-extrabold tracking-tight">STRYKR</span>
+            <span className="text-lg font-extrabold tracking-tight">DealerSync</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#features" className="hover:text-black">Features</a>
-            <a href="#video" className="hover:text-black">Video</a>
-            <a href="#pricing" className="hover:text-black">Pricing</a>
+            <a href="#value" className="hover:text-black">Why It Matters</a>
+            <a href="#how" className="hover:text-black">How It Works</a>
+            <a href="#trust" className="hover:text-black">Neutral Ledger</a>
+            <Link href="/research" className="hover:text-black">Research</Link>
           </nav>
           <div className="flex items-center gap-3">
-            <a href="#buy" className="inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 text-sm font-semibold shadow-sm hover:bg-neutral-800">Buy Now</a>
+            <a href="#start" className="inline-flex items-center justify-center rounded-md bg-black text-white px-4 py-2 text-sm font-semibold shadow-sm hover:bg-neutral-800">Book a Walkthrough</a>
           </div>
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-       
-        {/* Hero Section */
-        }
+
+        {/* Hero Section */}
         <section className="mt-6 grid gap-6 md:grid-cols-2 md:items-center">
           <div>
-            <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-slate-500">Train Like the <br />
-             <strong className="text-black font-semibold">Pros. Anytime. Anywhere.</strong></h2>
-            <p className="mt-4 text-lg text-neutral-700">With STRYKR, the VR-powered smart baseball tracker, your practice is no longer just reps—it’s precision, feedback, and progress you can measure.</p>
+            <h2 className="text-3xl md:text-5xl font-semibold leading-tight text-slate-500">
+              A VIN-level ledger <br />
+              <strong className="text-black font-semibold">every party can trust.</strong>
+            </h2>
+            <p className="mt-4 text-lg text-neutral-700">
+              DealerSync reconciles your DMS, accounting, and bills of sale into one
+              defensible OMVIC Transaction Fee Register — so you stop overpaying, kill
+              the manual reconstruction at renewal, and walk into an audit with proof
+              instead of paperwork.
+            </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#buy" className="inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 text-sm font-semibold shadow-sm hover:bg-neutral-800">Buy Now — $299.99</a>
-              <a href="#pricing" className="inline-flex items-center justify-center rounded-md border border-neutral-300 px-5 py-3 text-sm font-semibold text-neutral-900 hover:bg-neutral-50">Learn More</a>
+              <a href="#start" className="inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 text-sm font-semibold shadow-sm hover:bg-neutral-800">Book a Walkthrough</a>
+              <a href="#how" className="inline-flex items-center justify-center rounded-md border border-neutral-300 px-5 py-3 text-sm font-semibold text-neutral-900 hover:bg-neutral-50">See How It Works</a>
             </div>
           </div>
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-neutral-200">
-            <Image
-              src="https://img.baba-blog.com/2024/07/A-smart-baseball-bat-on-a-table-with-a-charger.jpg?x-oss-process=style%2Ffull"
-              alt="Smart baseball bat and charger on a table"
-              fill
-              priority
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
+          <div className="rounded-xl border border-neutral-200 p-6 bg-neutral-50">
+            <p className="text-sm font-semibold text-neutral-500 uppercase tracking-wide">Since Jan 6, 2025</p>
+            <p className="mt-2 text-neutral-800">
+              The Transaction Fee Register is a mandatory renewal submission. Most
+              dealers are still building it by hand — and the per-vehicle fee just
+              rose to <strong>$22</strong>, up from $12.50 in 2024.
+            </p>
           </div>
         </section>
 
-        {/* Subheadline */}
-        <section className="mt-12">
-          <p className="text-neutral-700 md:text-lg max-w-4xl">Step into a virtual ballpark and let advanced sensors + VR immersion transform every swing, pitch, and catch into data-driven insights. STRYKR helps athletes and coaches practice smarter, not harder.</p>
-        </section>
-
-        {/* Video Section */}
-        <section id="video" className="mt-16">
-          <div className="mt-6 aspect-[16/9] w-full rounded-xl border border-neutral-200 overflow-hidden">
-            <iframe
-              className="h-full w-full"
-              src="https://www.youtube.com/embed/OhWvYUazTiw?autoplay=1&mute=1&playsinline=1&controls=1&rel=0"
-              title="STRYKR Demo"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            />
-          </div>
-        </section>
-
-        {/* Core Features */}
-        <section id="features" className="mt-16">
-          <h3 className="text-2xl font-bold">Core Features</h3>
+        {/* Why It Matters */}
+        <section id="value" className="mt-20">
+          <h3 className="text-2xl font-bold">Where dealers are actually losing money</h3>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg border border-neutral-200 p-6">
-              <div className="text-2xl mb-2">🎯</div>
-              <h4 className="font-semibold">Precision Motion Tracking</h4>
-              <p className="mt-2 text-neutral-700">Track bat speed, pitch velocity, reaction time, swing angle, and more—with pro-level accuracy.</p>
+              <div className="text-2xl mb-2">💸</div>
+              <h4 className="font-semibold">Stop Overpaying</h4>
+              <p className="mt-2 text-neutral-700">
+                Flag genuinely exempt transactions — dealer-to-dealer consignments,
+                most commercial/bus sales — so you don&apos;t remit $22 on transactions
+                you never owed.
+              </p>
             </div>
             <div className="rounded-lg border border-neutral-200 p-6">
-              <div className="text-2xl mb-2">🧠</div>
-              <h4 className="font-semibold">AI-Powered Feedback</h4>
-              <p className="mt-2 text-neutral-700">Instant analysis shows exactly where to adjust. From mechanics to timing, STRYKR acts like your personal hitting coach.</p>
+              <div className="text-2xl mb-2">🛡️</div>
+              <h4 className="font-semibold">Audit-Proof</h4>
+              <p className="mt-2 text-neutral-700">
+                Hand an inspector a defensible, VIN-level evidence pack in minutes —
+                every figure source-linked and rule-cited, not reconstructed from memory.
+              </p>
             </div>
             <div className="rounded-lg border border-neutral-200 p-6">
-              <div className="text-2xl mb-2">🕶</div>
-              <h4 className="font-semibold">Immersive VR Drills</h4>
-              <p className="mt-2 text-neutral-700">Face off against simulated pitchers, train in dynamic drills, and sharpen reaction speed in high-intensity VR sessions.</p>
-            </div>
-            <div className="rounded-lg border border-neutral-200 p-6">
-              <div className="text-2xl mb-2">📊</div>
-              <h4 className="font-semibold">Progress Dashboard</h4>
-              <p className="mt-2 text-neutral-700">Set goals, review detailed reports, and monitor performance growth over time—perfect for athletes or full coaching programs.</p>
-            </div>
-            <div className="rounded-lg border border-neutral-200 p-6">
-              <div className="text-2xl mb-2">📂</div>
-              <h4 className="font-semibold">Team & Coach Tools</h4>
-              <p className="mt-2 text-neutral-700">Give your whole team an edge with multi-player accounts, shared progress tracking, and custom training plans.</p>
+              <div className="text-2xl mb-2">⏱️</div>
+              <h4 className="font-semibold">Kill the Admin</h4>
+              <p className="mt-2 text-neutral-700">
+                The Register became a mandatory renewal submission in 2025. Stop
+                rebuilding it by hand every renewal cycle.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Vision Statement */}
-        <section className="mt-16">
-          <h3 className="text-2xl font-bold">Vision Statement</h3>
-          <p className="mt-4 text-neutral-700 max-w-4xl">Baseball is evolving. STRYKR brings together VR immersion, AI insights, and cutting-edge tracking to create the next era of player development. Whether you’re a rising athlete, a weekend warrior, or a coach shaping the next generation, STRYKR makes practice powerful.</p>
-        </section>
-
-        {/* Pricing / Buy Now */}
-        <section id="pricing" className="mt-16">
-          <h3 className="text-2xl font-bold">Own STRYKR. One-Time Purchase.</h3>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border-2 border-black p-6 shadow-sm">
-              <h4 className="text-2xl font-semibold">STRYKR — $299.99</h4>
-              <ul className="mt-4 space-y-2 text-neutral-700">
-                <li>VR practice environment</li>
-                <li>Advanced swing & pitch tracking</li>
-                <li>AI-powered feedback and coaching tips</li>
-                <li>Personal progress dashboard & reports</li>
-              </ul>
-              <div className="mt-6">
-                <a id="buy" href="#" className="inline-flex items-center justify-center rounded-md bg-black text-white px-5 py-3 text-sm font-semibold shadow-sm hover:bg-neutral-800">Buy Now — $299.99</a>
-              </div>
-              <p className="mt-2 text-xs text-neutral-500">One-time payment. No subscription required.</p>
+        {/* How It Works */}
+        <section id="how" className="mt-20">
+          <h3 className="text-2xl font-bold">How it works</h3>
+          <p className="mt-4 text-neutral-700 max-w-4xl">
+            DealerSync ingests the dealer&apos;s own authorized records — DMS exports,
+            accounting, bills of sale — and reconciles them at the VIN level against
+            the OMVIC registrant search to classify each transaction as fee-applicable
+            or exempt. The output is the Transaction Fee Register itself, plus an
+            exception queue for anything that doesn&apos;t reconcile cleanly.
+          </p>
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-lg border border-neutral-200 p-6">
+              <p className="text-sm font-semibold text-neutral-500">01</p>
+              <h4 className="mt-1 font-semibold">Ingest</h4>
+              <p className="mt-2 text-neutral-700 text-sm">DMS export, accounting ledger, bills of sale.</p>
+            </div>
+            <div className="rounded-lg border border-neutral-200 p-6">
+              <p className="text-sm font-semibold text-neutral-500">02</p>
+              <h4 className="mt-1 font-semibold">Classify</h4>
+              <p className="mt-2 text-neutral-700 text-sm">Match each VIN against the OMVIC registrant search to determine exempt vs. fee-applicable.</p>
+            </div>
+            <div className="rounded-lg border border-neutral-200 p-6">
+              <p className="text-sm font-semibold text-neutral-500">03</p>
+              <h4 className="mt-1 font-semibold">Reconcile</h4>
+              <p className="mt-2 text-neutral-700 text-sm">Surface mismatches between sources into a reviewable exception queue.</p>
+            </div>
+            <div className="rounded-lg border border-neutral-200 p-6">
+              <p className="text-sm font-semibold text-neutral-500">04</p>
+              <h4 className="mt-1 font-semibold">Export</h4>
+              <p className="mt-2 text-neutral-700 text-sm">Produce the Transaction Fee Register and a source-linked audit evidence pack.</p>
             </div>
           </div>
         </section>
 
-        {/* Social Proof / Callout */}
-        <section className="mt-16">
-          <blockquote className="rounded-xl border border-neutral-200 p-6 bg-neutral-50">
-            <p className="text-neutral-800">“STRYKR feels like practicing inside the future of baseball. Every swing comes with insights you can’t get on the field.”</p>
-            <footer className="mt-2 text-sm text-neutral-600">– Early Beta Tester</footer>
-          </blockquote>
+        {/* Neutral Ledger / Trust */}
+        <section id="trust" className="mt-20">
+          <h3 className="text-2xl font-bold">The moat is neutrality</h3>
+          <p className="mt-4 text-neutral-700 max-w-4xl">
+            Right now neither side trusts the number. It&apos;s reconstructed by hand
+            from fragmented sources — the dealer doesn&apos;t know if they overpaid,
+            OMVIC doesn&apos;t know if the dealer underpaid. DealerSync isn&apos;t a
+            dashboard or a scraper — it&apos;s a defensible, explainable transaction
+            number that both sides accept because every figure is source-linked and
+            rule-cited. Same function as a tax return: the taxpayer accepts it because
+            it follows the rules, the regulator accepts it because it follows the rules.
+          </p>
         </section>
 
         {/* Final CTA */}
-        <section id="start" className="mt-16 text-center">
-          <h3 className="text-2xl md:text-3xl font-extrabold">Ready to play smarter?</h3>
-          <p className="mt-2 text-neutral-700">Level up your training with STRYKR today.</p>
+        <section id="start" className="mt-20 text-center">
+          <h3 className="text-2xl md:text-3xl font-extrabold">Reconcile your first renewal in minutes, not hours.</h3>
+          <p className="mt-2 text-neutral-700">Bring one anonymized reconciliation. We&apos;ll show you the exception queue live.</p>
           <div className="mt-6">
-            <a href="#buy" className="inline-flex items-center justify-center rounded-md bg-black text-white px-6 py-3 text-sm font-semibold shadow-sm hover:bg-neutral-800">Buy Now — $299.99</a>
+            <a href="mailto:hello@dealersync.app" className="inline-flex items-center justify-center rounded-md bg-black text-white px-6 py-3 text-sm font-semibold shadow-sm hover:bg-neutral-800">Book a Walkthrough</a>
           </div>
         </section>
       </main>

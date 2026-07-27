@@ -1,0 +1,56 @@
+[
+  {
+    "sourceId": "omvic-transaction-fees",
+    "sourceLabel": "OMVIC — Transaction Fees",
+    "sourceUrl": "https://www.omvic.ca/selling/fees/transaction-fees/",
+    "category": "official",
+    "capturedAt": "2026-07-26",
+    "summary": "The transaction fee is $22.00 per applicable vehicle transaction (sale, lease, fleet, or as-is), effective September 1, 2025, up from $12.50. Dealers self-report and remit as one payment combined with their renewal fee.",
+    "painLabels": ["fee_calculation_uncertainty"]
+  },
+  {
+    "sourceId": "omvic-new-fee-reporting-bulletin",
+    "sourceLabel": "OMVIC — Introducing the New Transaction Fee Reporting Process",
+    "sourceUrl": "https://www.omvic.ca/news/dealer-bulletins/introducing-the-new-transaction-fee-reporting-process-effective-january-2025/",
+    "category": "official",
+    "capturedAt": "2026-07-26",
+    "summary": "Dealers whose registrations renew on or after January 6, 2025 must complete and upload a Transaction Fee Register through the dealer portal. OMVIC states the change followed a pilot project and Auditor General recommendations after finding reporting inconsistencies.",
+    "painLabels": ["portal_workflow_friction", "renewal_delay_risk", "no_export_no_api"]
+  },
+  {
+    "sourceId": "auditor-general-omvic-followup-2023",
+    "sourceLabel": "Auditor General of Ontario — OMVIC Follow-Up (2023, Ch. 3.04)",
+    "sourceUrl": "https://www.auditor.on.ca/en/content/annualreports/arreports/en23/3-04FU-PAC_OMVIC_en23.pdf",
+    "category": "government",
+    "capturedAt": "2026-07-26",
+    "summary": "The Ministry is working with OMVIC and MTO on information-sharing to determine underreported revenue. Also found OMVIC overstated inspection counts between 2016-2020 by 25%, and OMVIC misreported curbsider-awareness survey data (41% reported vs. actual 65%).",
+    "painLabels": ["reconciliation_mismatch", "inspection_audit_stress"]
+  },
+  {
+    "sourceId": "ucda-omvic-transaction-fee",
+    "sourceLabel": "UCDA — OMVIC Transaction Fee",
+    "sourceUrl": "https://www.ucda.org/omvic-transaction-fee/",
+    "category": "industry_association",
+    "capturedAt": "2026-07-26",
+    "summary": "UCDA recommends dealers track fee-applicable transactions daily, or at minimum monthly, rather than reconstructing records at renewal. UCDA has distributed the Transaction Fee Register form to DMS vendors and tells dealers to consult their DMS provider on incorporating it.",
+    "painLabels": ["incomplete_preparation", "no_export_no_api"]
+  },
+  {
+    "sourceId": "ucda-dealers-cant-afford-omvic",
+    "sourceLabel": "UCDA — Dealers Can't Afford OMVIC",
+    "sourceUrl": "https://www.ucda.org/dealers-cant-afford-omvic/",
+    "category": "industry_association",
+    "capturedAt": "2026-07-26",
+    "summary": "UCDA is actively campaigning against OMVIC's fee increases on behalf of dealers, framing the regulator's cost structure as unaffordable — direct evidence that a tool framed as \"comply with OMVIC better\" will face dealer resistance.",
+    "painLabels": ["fee_calculation_uncertainty"]
+  },
+  {
+    "sourceId": "dealerpull-home",
+    "sourceLabel": "DealerPull — Dealer Management Software",
+    "sourceUrl": "https://www.dealerpull.com/",
+    "category": "dms_vendor",
+    "capturedAt": "2026-07-26",
+    "summary": "DealerPull markets an OMVIC-compliant garage register as a DMS feature, confirming register/recordkeeping compliance is already treated as a commercial software wedge, not just a manual process.",
+    "painLabels": ["no_export_no_api", "incomplete_preparation"]
+  }
+]
