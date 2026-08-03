@@ -1,21 +1,10 @@
 import type { Metadata } from "next";
-import { Rethink_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const rethinkSans = Rethink_Sans({
-  variable: "--font-rethink-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "DealerSync – VIN-Level Transaction Reconciliation",
   description:
-    "DealerSync reconciles a dealer's DMS, accounting, and bills of sale into one defensible OMVIC Transaction Fee Register — so you stop overpaying and walk into an audit with proof, not paperwork.",
+    "DealerSync connects vehicle transaction records, evidence, exceptions, and review decisions in one explainable compliance ledger.",
 };
 
 export default function RootLayout({
@@ -25,11 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${rethinkSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
