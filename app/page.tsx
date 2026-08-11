@@ -38,7 +38,7 @@ export default function Home() {
           <a href="#two-sided">For regulators</a>
           <Link href="/research">Research</Link>
         </nav>
-        <Link href="/demo" className="marketing-button">Explore the demo <ArrowRight size={15} /></Link>
+        <Link href="/sign-in" className="marketing-button">Sign in <ArrowRight size={15} /></Link>
       </header>
 
       <main>
@@ -48,7 +48,7 @@ export default function Home() {
             <h1>Reconcile every vehicle transaction with the evidence behind it.</h1>
             <p>A VIN-level compliance workspace that helps dealerships prepare accurate transaction records and helps reviewers investigate discrepancies without disconnected spreadsheets and portals.</p>
             <div className="hero-actions">
-              <Link href="/demo" className="marketing-button large">Open compliance dashboard <ArrowRight size={16} /></Link>
+              <Link href="/sign-up" className="marketing-button large">Create an account <ArrowRight size={16} /></Link>
               <a href="#workflow" className="marketing-button secondary large">See how reconciliation works</a>
             </div>
             <small>Local interactive prototype · Sample demonstration data · No live OMVIC or MTO integration</small>
@@ -108,7 +108,7 @@ export default function Home() {
                 <li><CheckCircle size={16} /> Organize supporting documents</li>
                 <li><CheckCircle size={16} /> Export a complete compliance package</li>
               </ul>
-              <Link href="/demo">Open dealership workspace <ArrowRight size={14} /></Link>
+              <Link href="/sign-up">Create a dealership account <ArrowRight size={14} /></Link>
             </article>
             <article>
               <div className="value-icon regulator"><Scales size={25} weight="duotone" /></div>
@@ -120,7 +120,7 @@ export default function Home() {
                 <li><CheckCircle size={16} /> Track dealer responses and review decisions</li>
                 <li><CheckCircle size={16} /> Produce defensible findings and exports</li>
               </ul>
-              <Link href="/demo">Open regulatory workspace <ArrowRight size={14} /></Link>
+              <Link href="/sign-up">Create a review account <ArrowRight size={14} /></Link>
             </article>
           </div>
         </section>
@@ -145,7 +145,7 @@ export default function Home() {
 
         <section className="final-cta">
           <div><span className="section-kicker">Explore the local prototype</span><h2>Follow one exception from detection through resolution.</h2><p>Switch between dealer and reviewer perspectives, compare records, add evidence, and see the shared ledger update.</p></div>
-          <Link href="/demo" className="marketing-button large">Open the interactive demo <ArrowRight size={16} /></Link>
+          <Link href="/sign-in" className="marketing-button large">Sign in to DealerSync <ArrowRight size={16} /></Link>
         </section>
       </main>
 

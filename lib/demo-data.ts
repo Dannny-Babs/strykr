@@ -53,6 +53,7 @@ export interface ExceptionRecord {
   feeImpact: number;
   evidenceStatus: string;
   explanation?: string;
+  domainStatus?: string;
 }
 
 const dealerBlueprints = [
