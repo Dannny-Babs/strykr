@@ -1,54 +1,45 @@
-# DealerSync restrained SaaS redesign — design QA
+# DealerSync UI redesign — design QA
 
-## Source of truth
+## Sources and comparison setup
 
-- Primary table and sidebar reference: `/var/folders/wm/mchwgsg907zgrvp9ggfqhcf00000gp/T/codex-clipboard-22484a60-e6d6-44e3-bcfd-cfc9878b1720.png`
-- Supporting references: the six additional light/dark sidebar, settings, filter, and modal screenshots supplied with the brief.
-- Expanded implementation specification: `/Users/danielbabalola/.codex/attachments/f2ba19c0-f64f-47fc-9d1c-446895cb46b0/pasted-text.txt`
+- Governing specification: `DealerSync UI System Redesign — Implementation Plan v2` supplied in the task.
+- Structural reference: `/var/folders/wm/mchwgsg907zgrvp9ggfqhcf00000gp/T/codex-clipboard-040b2fea-0e4c-4e05-8f5a-29f8b23748aa.png` (2048×1365). This is a density, sidebar, chrome, and spacing reference rather than the same product state.
+- Exact prior product state: `/tmp/dealersync-ui-plan-audit-2026-08-10/01-reviewer-dashboard.png` (1440×900 source capture).
+- Redesigned reviewer dashboard: `/private/tmp/dealersync-redesign-reviewer-dashboard-1084.png` (1084×774) and `/private/tmp/dealersync-redesign-reviewer-dashboard-1440.png` (1440×900).
+- Redesigned dealer dashboard: `/private/tmp/dealersync-redesign-dealer-dashboard-1440.png` (1440×900).
+- Redesigned reviewer reports: `/private/tmp/dealersync-redesign-reviewer-reports-1440.png` (1440×900).
+- Redesigned mobile reviewer dashboard: `/private/tmp/dealersync-redesign-reviewer-dashboard-390.png` (390×844).
+- Redesigned mobile dealer transactions: `/private/tmp/dealersync-redesign-dealer-transactions-390.png` (390×844).
+- Browser density: device-scale output normalized to CSS-pixel captures.
 
-## Comparison inputs
+## States inspected
 
-- Desktop table implementation: `/Users/danielbabalola/code/personal/strykr/design-neutral-table-final.png`
-- Desktop overview implementation: `/Users/danielbabalola/code/personal/strykr/design-neutral-overview.png`
-- Mobile implementation: `/Users/danielbabalola/code/personal/strykr/design-neutral-mobile.png`
+- Reviewer and dealer authenticated shells, expanded desktop navigation, 288px mobile navigation, and route breadcrumbs.
+- Reviewer and dealer dashboards with persisted KPI values, chart summaries, tooltips, tables, and mobile stacking.
+- Reviewer reports, reviewer investigation queue, dealer transactions, mobile record cards, pagination, filters, sorting, and empty-state implementations.
+- Page-scoped transaction selection, selected count, clear-selection action, and selected export action.
+- Global search minimum-query, loading, grouped result, keyboard selection, and no-result states.
+- Entity drawer loading skeleton, loaded details, nested navigation, full-screen mobile width, retry/copy-link/close behavior.
+- Sign-in at desktop and mobile widths, reviewer and dealer authentication, account menu, and sign-out.
+- Document upload and CSV import controls were checked against their live API-backed implementations.
 
-## Review history
+## Comparison and findings history
 
-### Pass 1
+1. P2 — the first redesigned desktop capture overflowed horizontally because the content inset retained `w-full` beside the 264px sidebar. Fixed by making the inset `min-w-0 flex-1`; recapture confirmed the shell and content grid remain inside the viewport.
+2. P2 — reviewer dashboard metrics and sidebar count were capped at 200 while the persisted investigation queue contained 272 open exceptions. Removed the query limit; the dashboard, sidebar, and queue now share the live count.
+3. P2 — drawer loading used a centered spinner, inconsistent with the final content geometry. Replaced it with a two-column definition-grid and section-row skeleton.
+4. P2 — reviewer audit sort controls from the contract were absent. Added URL-backed Newest, Due soonest, and Status sorting with stable ID tie-breaks and audit/dealership search.
+5. P2 — small button variants and drawer microcopy could render outside the locked control/type scale. Normalized button variants to 28/32px permitted targets and forced legacy 10/11px utility remnants inside the product boundary to the 12/16 scale.
+6. P3 — compared with the inspiration image, DealerSync intentionally retains less empty canvas because operational metrics, charts, and work queues are decision-supporting content. The shared qualities—achromatic chrome, grouped navigation, thin borders, restrained radii, compact typography, and low-shadow surfaces—are preserved.
 
-- Replaced the prior colorful, rounded system with neutral surfaces, grey selection states, a 272px shadcn sidebar, Rethink Sans, hairline borders, and 8–12px radii.
-- Removed card shadows, colored navigation, gradient-like surface treatments, oversized headings, and dense top-bar controls.
+## Final rubric
 
-### Pass 2
-
-- Reduced the transaction table from ten visible data columns to seven operational columns plus selection so the full first-pass reconciliation view fits at 1440px.
-- Added consistent header icons, row selection, semantic status badges, category glyphs, ISO dates, relative activity, continuation fade, result count, and numbered pagination.
-- Confirmed the search narrows to a unique row, Clear all resets the query and selection, and select-all checks all 12 visible rows.
-
-### Pass 3
-
-- Compared the primary reference and final implementation together.
-- Confirmed the target hierarchy: light fixed sidebar, subtle grey active item, compact utility header, search and outlined filter row, 60px hairline-divided rows, low-color status system, and restrained app-container radii.
-- Confirmed the 390px mobile layout collapses to one metric column and keeps primary top-bar actions accessible.
-
-## Verification
-
-- `npm run lint`: passed
-- `npx tsc --noEmit`: passed
-- `npm run build`: passed
-- Browser console: no application errors; React DevTools informational message only
-- Live preview: `http://localhost:3100/demo`
+- Hierarchy and readability: passed. Page identity, primary action, metrics, analysis, and prioritized work read in the correct order.
+- Layout and spacing: passed. Sidebar is 264px expanded, 64px collapsed, 288px mobile; header is 56px; product frame uses 16/24/32px responsive padding and a 1440px maximum.
+- Typography and tokens: passed. Inter is loaded at 400/500/600; product output is constrained to the six-size scale, approved neutral/status/chart colors, 6/8/10/14px radii, and tabular numerals.
+- Components and chrome: passed. Resting cards, controls, tables, and drawers have no unapproved shadow; blue is reserved for record links, focus, and chart data.
+- Responsive behavior: passed. KPI 4→2→1 behavior, stacked chart cards, mobile record lists, mobile navigation, and full-screen drawers were exercised at 390×844.
+- Interaction and accessibility: passed. Search keyboard navigation, Escape dismissal, focus-visible treatment, accessible chart summaries/tables, status text/glyphs, live result counts, and selection feedback are present.
+- Runtime health: passed. No Next.js error overlay, failed record state, or failed API response appeared during the exercised browser flows; test, lint, typecheck, and production build all pass.
 
 final result: passed
-
-## Workflow cleanup pass
-
-- Metric cards now follow one left-aligned reading path: icon, label, enlarged value, supporting context.
-- Reconciliation health shows three decision-level outcomes; the six-part breakdown moved into a working side drawer.
-- Regulatory review was reduced from four metrics plus eight table signals to three metrics and a six-column review queue.
-- Investigation was rebuilt as an operator workflow: queue, active dealership conversation, working call state and timer, notes, and an optional evidence/details drawer.
-- Evidence, reports, and compliance packages were consolidated into one searchable document library with folder filters, recent-document table, and document detail drawer.
-- Data import was removed from the primary navigation and converted into a four-step transaction module available from Transactions and Documents.
-- Desktop and 390px mobile layouts were checked for overflow; the simplified workflows have no horizontal overflow.
-
-final cleanup result: passed
