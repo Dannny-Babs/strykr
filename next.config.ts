@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
+  serverExternalPackages: ["better-sqlite3"],
   images: {
     remotePatterns: [
       {
@@ -12,12 +14,6 @@ const nextConfig: NextConfig = {
         hostname: "www.youtube.com",
       },
     ],
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 };
 
