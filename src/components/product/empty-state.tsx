@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-
 import { cn } from "@/lib/utils";
 
 export type EmptyStateKind =
@@ -48,25 +47,29 @@ export function EmptyState({
   return (
     <div
       className={cn(
-        "empty-state flex min-h-[370px] flex-col items-center justify-center bg-background px-6 py-9 text-center",
-        compact && "compact min-h-[290px] py-7",
+        "flex min-h-72 flex-col items-center justify-center bg-white px-6 py-9 text-center",
+        compact && "min-h-64 py-7",
         className,
       )}
       role="status"
     >
       <Image
-        className="empty-state-image mb-1 h-auto w-[clamp(156px,20vw,220px)] object-contain"
         src={EMPTY_STATE_ASSETS[kind]}
         alt=""
         width={1254}
         height={1254}
-        aria-hidden="true"
+        sizes={compact ? "176px" : "224px"}
+        className={cn(
+          "h-auto w-56 select-none mix-blend-multiply",
+          compact && "w-44",
+        )}
+        priority={false}
       />
-      <div className="empty-state-copy max-w-md">
-        <h3 className="text-lg font-semibold tracking-[-0.015em] text-foreground">{title}</h3>
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">{description}</p>
+      <div className="mt-2 max-w-sm">
+        <h3 className="text-base font-medium leading-6">{title}</h3>
+        <p className="mt-1 text-[13px] leading-5 text-muted-foreground">{description}</p>
       </div>
-      {action && <div className="mt-5">{action}</div>}
+      {action ? <div className="mt-4">{action}</div> : null}
     </div>
   );
 }

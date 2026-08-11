@@ -7,9 +7,9 @@ body,
 :root {
   --primary: oklch(0.62 0.255 259);
   --ring: oklch(0.62 0.255 259);
-  --accent: oklch(0.945 0.065 259);
+  --accent: oklch(0.91 0.115 259);
   --sidebar-primary: oklch(0.62 0.255 259);
-  --sidebar-accent: oklch(0.945 0.065 259);
+  --sidebar-accent: oklch(0.91 0.115 259);
 }
 
 .metric-grid.metric-grid-three {
@@ -121,8 +121,28 @@ body,
 
 /* Optical button spacing: icons sit closer to their edge; labels keep breathing room. */
 .button {
+  min-height: 40px;
   gap: 2px;
   padding-inline: 12px;
+}
+
+.control,
+.icon-button {
+  min-height: 40px;
+}
+
+.icon-button,
+.control.icon-only,
+.sidebar-trigger,
+.profile {
+  width: 40px;
+  height: 40px;
+}
+
+.button:active,
+.control:active,
+.icon-button:active {
+  transform: scale(0.97);
 }
 
 .button > .button-label {
@@ -135,6 +155,7 @@ body,
 }
 
 .button.small {
+  min-height: 40px;
   padding-inline: 10px;
 }
 
@@ -271,6 +292,17 @@ body,
 }
 
 .selected-row { background: var(--workflow-blue-wash); }
+
+.pagination button {
+  width: 40px;
+  height: 40px;
+}
+
+.pagination button.current {
+  color: #fff;
+  background: var(--workflow-blue);
+  border-color: var(--workflow-blue);
+}
 
 /* Full-width, lower-density attention table. */
 .work-grid.work-grid-single {
