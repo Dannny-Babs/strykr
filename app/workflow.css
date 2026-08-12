@@ -5,11 +5,11 @@ body,
 }
 
 :root {
-  --primary: oklch(0.62 0.255 259);
-  --ring: oklch(0.62 0.255 259);
-  --accent: oklch(0.91 0.115 259);
-  --sidebar-primary: oklch(0.62 0.255 259);
-  --sidebar-accent: oklch(0.91 0.115 259);
+  --primary: oklch(0.56 0.15 259);
+  --ring: oklch(0.56 0.15 259);
+  --accent: oklch(0.95 0.025 259);
+  --sidebar-primary: oklch(0.56 0.15 259);
+  --sidebar-accent: oklch(0.95 0.025 259);
 }
 
 .metric-grid.metric-grid-three {
@@ -61,28 +61,28 @@ body,
   text-align: right;
 }
 
-/* High-chroma operational color: vivid enough to scan, controlled enough to work in. */
+/* Quiet operational color: one primary, warm neutrals, and restrained status cues. */
 .demo-app {
-  --workflow-blue: oklch(0.62 0.255 259);
-  --workflow-blue-strong: oklch(0.5 0.285 259);
-  --workflow-blue-wash: oklch(0.91 0.115 259);
-  --workflow-blue-border: oklch(0.76 0.175 259);
-  --workflow-green: oklch(0.66 0.205 158);
-  --workflow-green-strong: oklch(0.47 0.145 158);
-  --workflow-green-wash: oklch(0.92 0.1 158);
-  --workflow-green-border: oklch(0.78 0.145 158);
-  --workflow-amber: oklch(0.74 0.19 74);
-  --workflow-amber-strong: oklch(0.52 0.14 68);
-  --workflow-amber-wash: oklch(0.93 0.13 84);
-  --workflow-amber-border: oklch(0.8 0.17 78);
-  --workflow-coral: oklch(0.62 0.235 23);
-  --workflow-coral-strong: oklch(0.51 0.205 23);
-  --workflow-coral-wash: oklch(0.925 0.115 20);
-  --workflow-coral-border: oklch(0.78 0.175 20);
-  --workflow-violet: oklch(0.61 0.225 295);
-  --workflow-violet-strong: oklch(0.49 0.205 295);
-  --workflow-violet-wash: oklch(0.92 0.11 295);
-  --workflow-violet-border: oklch(0.78 0.17 295);
+  --workflow-blue: oklch(0.56 0.15 259);
+  --workflow-blue-strong: oklch(0.5 0.17 259);
+  --workflow-blue-wash: oklch(0.95 0.025 259);
+  --workflow-blue-border: oklch(0.82 0.07 259);
+  --workflow-green: oklch(0.48 0.08 158);
+  --workflow-green-strong: oklch(0.42 0.065 158);
+  --workflow-green-wash: oklch(0.95 0.018 158);
+  --workflow-green-border: oklch(0.88 0.025 158);
+  --workflow-amber: oklch(0.55 0.09 75);
+  --workflow-amber-strong: oklch(0.47 0.07 75);
+  --workflow-amber-wash: oklch(0.96 0.018 84);
+  --workflow-amber-border: oklch(0.89 0.025 84);
+  --workflow-coral: oklch(0.53 0.12 25);
+  --workflow-coral-strong: oklch(0.47 0.1 25);
+  --workflow-coral-wash: oklch(0.96 0.018 25);
+  --workflow-coral-border: oklch(0.89 0.025 25);
+  --workflow-violet: oklch(0.52 0.09 295);
+  --workflow-violet-strong: oklch(0.46 0.075 295);
+  --workflow-violet-wash: oklch(0.96 0.018 295);
+  --workflow-violet-border: oklch(0.89 0.025 295);
   --primary: var(--workflow-blue);
   --ring: var(--workflow-blue);
   --sidebar-primary: var(--workflow-blue);
@@ -171,29 +171,32 @@ body,
 }
 
 .metric-card.metric-green {
-  background: var(--workflow-green-wash) !important;
-  border-color: var(--workflow-green-border);
+  background: #fff !important;
+  border-color: #e8e4dc;
 }
 
 .metric-card.metric-blue {
-  background: var(--workflow-blue-wash) !important;
-  border-color: var(--workflow-blue-border);
+  background: #fff !important;
+  border-color: #e8e4dc;
 }
 
 .metric-card.metric-red {
-  background: var(--workflow-coral-wash) !important;
-  border-color: var(--workflow-coral-border);
+  background: #fff !important;
+  border-color: #e8e4dc;
 }
 
 .metric-card.metric-amber {
-  background: var(--workflow-amber-wash) !important;
-  border-color: var(--workflow-amber-border);
+  background: #fff !important;
+  border-color: #e8e4dc;
 }
 
-.metric-icon.green { color: #fff; background: var(--workflow-green); }
-.metric-icon.blue { color: #fff; background: var(--workflow-blue); }
-.metric-icon.red { color: #fff; background: var(--workflow-coral); }
-.metric-icon.amber { color: #fff; background: var(--workflow-amber); }
+.metric-icon.green,
+.metric-icon.blue,
+.metric-icon.red,
+.metric-icon.amber {
+  color: var(--workflow-blue);
+  background: var(--workflow-blue-wash);
+}
 
 .readiness-progress > div span,
 .readiness-cell i { background: var(--workflow-green); }
@@ -288,7 +291,7 @@ body,
 .search-field:focus-within,
 .call-notes textarea:focus {
   border-color: var(--workflow-blue);
-  box-shadow: 0 0 0 3px oklch(0.62 0.255 259 / 0.18);
+  box-shadow: 0 0 0 3px oklch(0.56 0.15 259 / 0.16);
 }
 
 .selected-row { background: var(--workflow-blue-wash); }
@@ -411,8 +414,8 @@ body,
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .call-queue-item:hover { background: #f6f8ff; }
-  .document-folders button:hover { background: #f6f7fb; }
+  .call-queue-item:hover,
+  .document-folders button:hover { background: #f7f5f0; }
 }
 
 @media (max-width: 820px) {

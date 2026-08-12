@@ -8,9 +8,9 @@ const inputVariants = cva(
   {
     variants: {
       controlSize: {
-        sm: "h-8 px-3 file:h-8",
-        default: "h-9 px-3 file:h-8",
-        lg: "h-9 px-3 file:h-8",
+        sm: "h-10 px-3 file:h-8",
+        default: "h-10 px-3 file:h-8",
+        lg: "h-10 px-3 file:h-8",
       },
     },
     defaultVariants: {
