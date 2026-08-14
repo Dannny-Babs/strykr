@@ -1,21 +1,28 @@
 import type { Metadata } from "next";
-import { Rethink_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
-const rethinkSans = Rethink_Sans({
-  variable: "--font-rethink-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+  style: ["normal"],
+  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
-  title: "STRYKR – VR-Powered Smart Baseball Tracker",
+  applicationName: "Cordena",
+  title: "Cordena – VIN-Level Transaction Reconciliation",
   description:
-    "Train like the pros. STRYKR combines VR, AI insights, and precision motion tracking for smarter baseball practice.",
+    "Cordena connects vehicle transaction records, evidence, exceptions, and review decisions in one explainable compliance ledger.",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Cordena",
+  },
 };
 
 export default function RootLayout({
@@ -24,12 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${rethinkSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="en" className={cn("font-sans", inter.variable)}>
+      <body><TooltipProvider delayDuration={400}>{children}</TooltipProvider></body>
     </html>
   );
 }

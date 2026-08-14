@@ -1,0 +1,185 @@
+{
+  "generatedAt": "2026-07-27",
+  "method": {
+    "embeddingModel": "sentence-transformers/all-MiniLM-L6-v2",
+    "nliModel": "cross-encoder/nli-MiniLM2-L6-H768",
+    "clustering": "DBSCAN (cosine, eps=0.15, min_samples=2)",
+    "sentiment": "NLTK VADER"
+  },
+  "corpus": {
+    "totalChunks": 146,
+    "uniqueChunks": 135,
+    "duplicateChunks": 11,
+    "clusterCount": 8
+  },
+  "taxonomyDistribution": [
+    {
+      "label": "rule_ambiguity",
+      "title": "Rule ambiguity",
+      "count": 1
+    },
+    {
+      "label": "incomplete_preparation",
+      "title": "Incomplete preparation",
+      "count": 1
+    },
+    {
+      "label": "portal_workflow_friction",
+      "title": "Portal workflow friction",
+      "count": 0
+    },
+    {
+      "label": "no_export_no_api",
+      "title": "No export / no API",
+      "count": 0
+    },
+    {
+      "label": "reconciliation_mismatch",
+      "title": "Reconciliation mismatch",
+      "count": 6
+    },
+    {
+      "label": "fee_calculation_uncertainty",
+      "title": "Fee-calculation uncertainty",
+      "count": 1
+    },
+    {
+      "label": "renewal_delay_risk",
+      "title": "Renewal-delay risk",
+      "count": 0
+    },
+    {
+      "label": "inspection_audit_stress",
+      "title": "Inspection / audit stress",
+      "count": 0
+    }
+  ],
+  "sentimentDistribution": {
+    "positive": 98,
+    "neutral": 6,
+    "negative": 31
+  },
+  "findings": [
+    {
+      "chunkId": "auditor-general-omvic-2021-full-report::35",
+      "sourceLabel": "Auditor General of Ontario \u2014 Value-for-Money Audit: OMVIC (2021, full report)",
+      "sourceUrl": "https://www.auditor.on.ca/en/content/annualreports/arreports/en21/AR_OMVIC_en21.pdf",
+      "text": "required to support the work of the Consumer RECOMMENDATION 13\nSupport Team in order to implement the Auditor\nTo protect consumers who purchase a motor\nGeneral\u2019s recommendations.\nvehicle from a registered motor vehicle dealer that\ndoes not meet all its obligations under the Motor\n4.5 Compensation Fund\nVehicle Dealers Act, 2002 or relevant sections of\nthe Consumer Protection Act, 2002, we recommend\n4.5.1 The Compensation Fund Does Not Always\nthat the Ontario Motor Vehicle Industry Council\nProtect Consumers When Registered Motor\n(OMVIC) work with the Compensation Fund\u2019s\nVehicle Dealers Breach the Law\nBoard of Trustees to:\nWe found that the Compensation Fund protects con- \u2022 review consumer complaints that were not\nsumers only in certain circumstances and does not eligible for a claim against the Compensation\nalways compensate vehicle buyers who suffer a finan- Fund to develop additional eligibility criteria;\ncial loss as a result of a motor vehicle purchase, even and\nif the registered motor vehicle dealer they purchased \u2022 propose to the Ministry of Government and\nthe vehicle from has breached one or more provisions Consumer Services to include in the Motor\nin the Motor Vehicle Dealers Act, 2002. Vehicle Dealers Act, 2002 additional criteria for\nWe noted that to be eligible to receive compensa- eligibility for compensation, and to also allow\ntion from the Compensation Fund, consumers who the Compensation Fund\u2019s Board of Trustees\nsuffer financial losses must meet one of 11 specific cri- to use their discretion to compensate con-\nteria set out in the Motor Vehicle Dealers Act, 2002 (see sumers for claims involving the violation of\nSection 2.8, Figure 16). the acts that do not fit into a specific eligibil-\nHowever, we found that the criteria specified in ity criterion.\nthe Motor Vehicle Dealers Act, 2002 do not capture all\npossible breaches of the acts in a vehicle purchase OMVIC RESPONSE\nthat can result in harm to consumers. We also noted\nOMVIC agrees with the Auditor General\u2019s recom-\nthat the Board of Trustees that manages the Fund and\nmendation. OMVIC will review the consumer\nmakes claim decisions does not have the ability to\ncomplaints that were identified as ineligible for\nuse its discretion to pay out claims that do not fit the\ncompensation and will consider whether additional\nspecific criteria specified in the Motor Vehicle Dealers\neligibility criteria are required, in consultation with\nAct, 2002. Therefore, consumers who have suffered\nthe Compensation Fund\u2019s Board of Trustees. Upon\nlosses that do not meet the Fund\u2019s specific criteria\ncompletion of the review, OMVIC, in consultation\nare often advised by OMVIC to seek compensation\nwith the Ministry of Government and Consumer\nthrough the provincial courts.\nServices, will assess additional criteria for eligibil-\nFigure 22 provides examples of circumstances\nity for compensation, including a discretionary\nwhere motor vehicle dealers have breached provisions\nprovision to ensure more complete eligibility.\nunder the acts that do not meet the Compensation\nFund\u2019s eligibility criteria.\nMINISTRY RESPONSE\nThe Ministry of Government and Consumer Ser-\nvices (Ministry) will collaborate with the Ontario",
+      "label": "reconciliation_mismatch",
+      "score": 0.762,
+      "sentiment": "negative"
+    },
+    {
+      "chunkId": "auditor-general-omvic-followup-2023::6",
+      "sourceLabel": "Auditor General of Ontario \u2014 OMVIC Follow-Up (2023, Ch. 3.04)",
+      "sourceUrl": "https://www.auditor.on.ca/en/content/annualreports/arreports/en23/3-04FU-PAC_OMVIC_en23.pdf",
+      "text": "Section 3.04: Ontario Motor Vehicle Industry Council 7\nCommittee Recommendation Status Details\n\u2022 review consumer complaints that OMVIC completed an internal review of consumer complaints that were not eligible for a\nwere not eligible for a claim against claim against the Compensation Fund dating from 2017 to 2021. The types of complaints\nthe Compensation Fund in order to it identified as not eligible for a claim included non-disclosure of a vehicle having had\ndevelop additional eligibility criteria for substantial accidents, non-disclosure of significant repairs made to the vehicle prior to\naccessing the Compensation Fund and sale, and all-in-price advertising violations. Based on OMVIC\u2019s review of the complaints,\nthereby increase consumer protection; as well as consultations with stakeholder groups and the Compensation Fund\u2019s Board of\nTrustees, OMVIC identified 10 ways to expand the eligibility criteria for the Compensation\nStatus: Fully implemented.\nFund, and provided a proposal to the Ministry for its consideration. The proposed\nadditional criteria included:\n\u2022 Failing to Discharge Lien Registered Against Traded-In Vehicle: The Fund would allow\na claim when a trade-in vehicle still has an outstanding lien, and the lien is not removed\nby the dealer prior to sale of the vehicle to a consumer.\n\u2022 Serious Safety Issues Resulting in Impoundment of Vehicle/Seizure of License\nPlates: The Fund would allow a claim from a consumer who purchased or leased an\nunsafe vehicle that was then impounded when found to be dangerous/unsafe by the\nMinistry of Transportation or the police.\n\u2022 All-in-Price Advertising Violations: The Fund would allow a claim if there are damages\ndue to a dealer\u2019s false representations about pricing or if promised benefits were not\ndelivered to the customer.\n\u2022 propose to the Ministry of Public and As noted, OMVIC identified 10 ways to expand the eligibility criteria for the Compensation\nBusiness Service Delivery to include Fund, and provided a proposal on its findings to the Ministry. OMVIC expected that its\nin legislation additional criteria for proposal to the Ministry would also increase the Board\u2019s ability to use discretion for\neligibility for compensation, and circumstances and violations that were not previously covered.\nto also allow the Compensation\nThe Ministry indicated it had reviewed OMVIC\u2019s proposal to expand the eligibility criteria,\nFund\u2019s Board of Trustees to use their\nand asked OMVIC for additional information, including with respect to the sufficiency of\ndiscretion to compensate consumers\nthe Compensation Fund, whether registrants were making adequate contributions to the\nfor claims involving the violation of\nFund, and how OMVIC decided on the proposed eligibility criteria. In addition, the Ministry\napplicable legislation that do not fit\nindicated that it was in the process of conducting jurisdictional research and consulting\ninto a specific eligibility criterion.\nwith other provinces that regulate motor vehicle sales\u2014including Nova Scotia, Quebec,\nStatus: Little or no progress. Saskatchewan, Alberta and British Columbia\u2014about their Compensation Fund eligibility\nrules to inform potential proposals for amendments to the Act. Once its jurisdictional\nresearch and discussions with OMVIC are complete, the Ministry plans to finalize policy\noptions for public consultation, and develop proposals for legislative and/or regulatory\namendments for the government\u2019s consideration. If a decision is made to move forward,\nthe Ministry estimated that any potential changes would come into effect by July 2025.",
+      "label": "reconciliation_mismatch",
+      "score": 0.534,
+      "sentiment": "positive"
+    },
+    {
+      "chunkId": "ola-public-accounts-omvic-2023::13",
+      "sourceLabel": "Legislative Assembly of Ontario \u2014 Public Accounts Committee Report on OMVIC",
+      "sourceUrl": "https://www.ola.org/en/legislative-business/committees/public-accounts/parliament-43/reports/2023-feb-21-value-for-money-audit-ontario-motor-vehicle-industry-council-2021-annual-report-office-a",
+      "text": "**(a)****require a letter of credit from each motor vehicle dealer at the time of registration; upon the request of the Council a dealer must provide an updated letter of credit; these letters of credit must be held by the Council past the closure of the dealerships; and**\n**(b)****ensure staffing levels are sufficient to manage an increased workload.**\n**2.****The Ministry of Public and Business Service Delivery should work with the Ontario Motor Vehicle Industry Council to implement mandatory continuing education requirements for motor vehicle dealers and salespersons to ensure that they are up to date on relevant legislative and regulatory changes.**\n**3.****The Ontario Motor Vehicle Industry Council should**\n**(a)****develop a risk framework and assign an inspection frequency to each level of risk;**\n**(b)****determine and assign a risk level and inspection frequency to each motor vehicle dealer;**\n**(c)****put in place systems to ensure that each dealer is scheduled for and receives an inspection based on its assigned risk level;**\n**(d)****assess the workload of inspectors and ensure that it has sufficient staff to carry out and complete annually assigned inspections on a timely basis;**\n**(e)****implement a process to regularly review inspections completed by its inspectors to ensure they are performed consistently;**\n**(f)****ensure that motor vehicle dealers disclose infractions regarding the condition of motor vehicles that could pose a significant safety concern; and**\n**(g)****use an in-house \u201cmystery shopping\u201d program to monitor****compliance with all-in-price advertising and disclosure requirements set out in legislation; and ensure consistent responses to compliance issue discoveries.**\n**4.****The Ontario Motor Vehicle Industry Council (OMVIC) should**\n**(a)****establish benchmarks or guidelines for enforcement action and the timely completion of investigations;**\n**(b)****implement a process for monitoring whether investigators complete investigations on a timely basis and take appropriate action based on the results of their investigations; and**\n**(c)****develop guidelines for when OMVIC investigators should refer cases to the OMVIC Discipline Committee.**\n**5.****T****he Ministry of Public and Business Service Delivery should work with****the****Ontario Motor Vehicle Industry Council to**\n**(a)****reassess the current limitations of legislation that prevents OMVIC from compelling motor vehicle dealers to provide restitution to consumers when they have breached the law; and identify what regulatory and legislative changes are necessary to address these limitations; and**\n**(b)****allow consumers who make purchases from motor vehicle dealers acting illegally to be indemnified for a claim to the Compensation Fund where OMVIC\u2019s own investigation confirms that such consumers were intentionally misled by a motor vehicle dealer; and that the Council utilize its resources and authority to recover sums from such motor vehicle dealers paid out to consumers from the Compensation Fund.**\n**6.****The Ontario Motor Vehicle Industry Council should**\n**(a)****establish a clear framework with criteria to be used in determining when a complaint against a motor vehicle dealer should be referred for enforcement action;**\n**(b)****ensure that all complaint-handling staff apply the framework and criteria consistently to all complaints received and mediated by OMVIC and that staff are resourced to fulfil and execute all their responsibilities and effectively resolve complaints;**\n**(c)****review consumer complaints that were not eligible for a claim against the Compensation Fund in order to develop additional eligibility criteria for accessing the Compensation Fund and thereby increase consumer protection; and**\n**(d)****propose to the Ministry of Public and Business Service Delivery to include in legislation additional criteria for eligibility for compensation, and to also allow the Compensation Fund\u2019s Board of Trustees to use their discretion to compensate consumers for claims involving the violation of applicable legislation that do not fit into a specific eligibility criterion.**\n 1. **The Ontario Motor Vehicle Industry Council should**",
+      "label": "reconciliation_mismatch",
+      "score": 0.683,
+      "sentiment": "positive"
+    },
+    {
+      "chunkId": "omvic-transaction-fees::1",
+      "sourceLabel": "OMVIC \u2014 Transaction Fees",
+      "sourceUrl": "https://www.omvic.ca/selling/fees/transaction-fees/",
+      "text": "A vehicle that is not built for use on the road are exempted, including:\n * watercrafts\n * vehicles used primarily for farming\n * specialized construction machines\n * snowmobiles",
+      "label": "reconciliation_mismatch",
+      "score": 0.78,
+      "sentiment": "neutral"
+    }
+  ],
+  "topClusters": [
+    {
+      "clusterId": 0,
+      "size": 6,
+      "sourceLabels": [
+        "Auditor General of Ontario \u2014 2021 News Release on OMVIC",
+        "Auditor General of Ontario \u2014 OMVIC Follow-Up (2023, Ch. 3.04)",
+        "Auditor General of Ontario \u2014 Value-for-Money Audit: OMVIC (2021, full report)",
+        "Legislative Assembly of Ontario \u2014 Public Accounts Committee Report on OMVIC"
+      ],
+      "exampleTexts": [
+        "the Compensation Fund\u2019s Board that the firm was Dealers Act, 2002 effectively in order to protect\nnot using an appropriate investment strategy, and the public in their transactions with motor vehicle\n",
+        "2.2 Roles and Responsibilities\nspecific steps OMVIC plans to take to implement\neach recommendation. The Ministry will closely\nOMVIC undertakes a number of activities to admin-\nmonitor and track OMVIC\u2019",
+        "News Release\nFor Immediate Release December 1, 2021\nOntarians who Buy Cars and Trucks are Often Left Defenceless by the Group\nThat\u2019s Supposed to Protect Them: Auditor General\n(Toronto) The Ontario Mot"
+      ]
+    },
+    {
+      "clusterId": 4,
+      "size": 4,
+      "sourceLabels": [
+        "Auditor General of Ontario \u2014 OMVIC Follow-Up (2023, Ch. 3.04)",
+        "Auditor General of Ontario \u2014 Value-for-Money Audit: OMVIC (2021, full report)",
+        "Legislative Assembly of Ontario \u2014 Public Accounts Committee Report on OMVIC"
+      ],
+      "exampleTexts": [
+        "OMVIC, the Ministry has never initiated any reviews been appointed to the Board by the Minister and did\nof OMVIC to address those concerns. Instead, the not represent motor vehicle dealer interests.\nM",
+        "Committee Recommendation Status Details\nRecommendation 11\nThe Standing Committee on Public\nAccounts recommends that the Ministry\nof Public and Business Service Delivery\nshould strengthen the independe",
+        "**(a)****amending the regulation to disallow the Ontario Motor Vehicle Industry Board from appointing its own Board members to the Compensation Fund\u2019s Board of Trustees; and**\n**(b)****clarifying the "
+      ]
+    },
+    {
+      "clusterId": 7,
+      "size": 3,
+      "sourceLabels": [
+        "OMVIC \u2014 Introducing the New Transaction Fee Reporting Process",
+        "UCDA Frontline \u2014 OMVIC's New Transaction Fee Reporting Process",
+        "UCDA \u2014 OMVIC Transaction Fee"
+      ],
+      "exampleTexts": [
+        "Back \n# Introducing the New Transaction Fee Reporting Process effective January 2025 \nPublished On\n November 1, 2024\nCategory\n \nDealer Bulletins\n\nOMVIC has enhanced its annual transaction fee reportin",
+        "Search\n\nHome\nJanuary\nOMVIC\u2019s New Transaction Fee Reporting Process:\n## OMVIC\u2019s New Transaction Fee Reporting Process:\n**What It Means for Your Dealership in the New Year**\nIn November, OMVIC released ",
+        "Whatever decision is made, dealers need relief and quickly. We are in a crisis and OMVIC is deaf to our pleas.\nI would be pleased to meet with you at your convenience to discuss this issue. We also ho"
+      ]
+    },
+    {
+      "clusterId": 1,
+      "size": 2,
+      "sourceLabels": [
+        "Auditor General of Ontario \u2014 Value-for-Money Audit: OMVIC (2021, full report)"
+      ],
+      "exampleTexts": [
+        "4.0 Detailed Audit Observations open and operate their dealership in order to help\ngauge whether they would be able to meet all of their\nfinancial responsibilities under the Motor Vehicle\n4.1 Registra",
+        "The new dealer application procedure will past bankruptcy filings and past allegations of fraud\nbe updated based on the Auditor General\u2019s rec- investigated for illegally selling vehicles without being"
+      ]
+    },
+    {
+      "clusterId": 2,
+      "size": 2,
+      "sourceLabels": [
+        "Auditor General of Ontario \u2014 Value-for-Money Audit: OMVIC (2021, full report)"
+      ],
+      "exampleTexts": [
+        "RECOMMENDATION 19 4.7.2 OMVIC Does Not Have the Legal Authority\nto Transfer Surplus Funds to its Compensation\nTo improve the effectiveness of the Ontario Motor\nFund as Needed to Address the Compensati",
+        "\u2022 work with the Ministry of Government and\nFigure 24: Value of Compensation Fund, 2016\u20132020\nConsumer Services to propose an update to the\n($ million)\ngovernment on regulations under the Motor\nSource o"
+      ]
+    },
+    {
+      "clusterId": 3,
+      "size": 2,
+      "sourceLabels": [
+        "Auditor General of Ontario \u2014 OMVIC Follow-Up (2023, Ch. 3.04)",
+        "Auditor General of Ontario \u2014 Value-for-Money Audit: OMVIC (2021, full report)"
+      ],
+      "exampleTexts": [
+        "If an information-sharing agreement with MTO alternative to cash. In addition, the report noted that\nis developed, OMVIC will create a plan to ensure vehicles can be exchanged between dealers and acro",
+        "Section 3.04: Ontario Motor Vehicle Industry Council 9\nCommittee Recommendation Status Details\n\u2022 collaborate with the Ministry of OMVIC worked with the Ministry of Transportation (MTO) to obtain sampl"
+      ]
+    }
+  ],
+  "knownLimitations": [
+    "Zero-shot classification (no fine-tuning yet) surfaced high-confidence labels on only 6 of 145 unique chunks \u2014 a narrow, single-domain corpus like this gives the entailment model little contrast between related categories. Per the deep-research report, this is the expected first pass before weak supervision / human-reviewed labeling, not a finished classifier.",
+    "2 of those 6 tagged chunks were nav artifacts (a breadcrumb trail, a main-menu list) that the automatic nav filter missed because they contain a couple of common words. Excluded manually after review; not shown above.",
+    "DBSCAN clustering needed eps tuned down to 0.15 from an initial 0.35 \u2014 at looser thresholds, 87% of chunks collapsed into one mega-cluster because general-purpose sentence embeddings don't spread out much across a topically narrow, single-regulator corpus.",
+    "Sentiment skews heavily positive (98/135) \u2014 VADER is tuned for social-media text; official/marketing copy full of words like 'protect' and 'help' reads as positive regardless of the underlying dealer sentiment. Not a reliable pain signal on this corpus type."
+  ]
+}

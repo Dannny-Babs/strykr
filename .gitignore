@@ -32,6 +32,12 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# local product data and uploaded evidence
+/data/*.db
+/data/*.db-*
+/storage/
 
 # vercel
 .vercel
@@ -45,3 +51,8 @@ public/**/*.mp4
 public/**/*.mov
 public/**/*.avi
 public/**/*.mkv
+
+# python crawl/nlp script scratch output
+scripts/crawl_output/
+scripts/nlp_output/
+__pycache__/
