@@ -33,7 +33,7 @@ function Section({ title, description, children }: { title: string; description?
 
 function Activity({ value }: { value: unknown }) {
   const events = list(value);
-  return <div className="space-y-0">{events.length ? events.slice(0, 8).map((item) => <div key={text(item.id)} className="flex gap-3 border-t py-3 first:border-t-0"><span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-md bg-muted"><History className="size-3.5" /></span><div><p className="text-sm"><strong>{text(item.actorName, "DealerSync")}</strong> {text(item.action).toLowerCase().replaceAll("_", " ")}</p><p className="mt-0.5 text-xs text-muted-foreground">{dateLabel(text(item.timestamp))}</p></div></div>) : <p className="text-sm text-muted-foreground">No activity has been recorded for this object.</p>}</div>;
+  return <div className="space-y-0">{events.length ? events.slice(0, 8).map((item) => <div key={text(item.id)} className="flex gap-3 border-t py-3 first:border-t-0"><span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-md bg-muted"><History className="size-3.5" /></span><div><p className="text-sm"><strong>{text(item.actorName, "Cordena")}</strong> {text(item.action).toLowerCase().replaceAll("_", " ")}</p><p className="mt-0.5 text-xs text-muted-foreground">{dateLabel(text(item.timestamp))}</p></div></div>) : <p className="text-sm text-muted-foreground">No activity has been recorded for this object.</p>}</div>;
 }
 
 function DealershipView({ data }: { data: EntityPayload }) {

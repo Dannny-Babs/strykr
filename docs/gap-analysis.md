@@ -5,7 +5,7 @@ Audited on 2026-08-10 before foundational implementation. The checkout already c
 ## What existed
 
 - Next.js 15 App Router routes: `/`, `/demo/[[...view]]`, `/research`, `/analysis`, and `/api/collect`.
-- A polished, single-client-component operational prototype in `components/dealersync-demo.tsx`.
+- A polished, single-client-component operational prototype in `components/cordena-demo.tsx`.
 - Hard-coded dealerships, transactions, exceptions, and metrics in `lib/demo-data.ts`.
 - Browser-only exception changes in `localStorage` and document binaries in IndexedDB.
 - A source collector, verified research JSON, Crawl4AI script, and an independent Python NLP pipeline.

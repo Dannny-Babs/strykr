@@ -14,9 +14,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DealerSync – VIN-Level Transaction Reconciliation",
+  applicationName: "Cordena",
+  title: "Cordena – VIN-Level Transaction Reconciliation",
   description:
-    "DealerSync connects vehicle transaction records, evidence, exceptions, and review decisions in one explainable compliance ledger.",
+    "Cordena connects vehicle transaction records, evidence, exceptions, and review decisions in one explainable compliance ledger.",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Cordena",
+  },
 };
 
 export default function RootLayout({

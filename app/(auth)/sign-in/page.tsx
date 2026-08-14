@@ -7,5 +7,5 @@ import { getCurrentSessionUser } from "@/server/auth/context";
 
 export default async function SignInPage() {
   const actor = await getCurrentSessionUser(); if (actor) redirect(destinationForActor(actor.role, actor.onboardingComplete));
-  return <AuthShell title="Welcome back" description="Sign in to continue to your dealership or review workspace." footer={<><details><summary className="cursor-pointer font-medium text-foreground">Local pilot credentials</summary><p className="mt-2">Use a seeded email ending in <code>@example.test</code> with password <code>DealerSync2026!</code>.</p></details><Link href="/" className="mt-3 inline-block font-medium text-foreground hover:underline">Return to the product overview</Link></>}><SignInForm /></AuthShell>;
+  return <AuthShell title="Welcome back" description="Sign in to continue to your dealership or review workspace." footer={<><details><summary className="cursor-pointer font-medium text-foreground">Local pilot credentials</summary><p className="mt-2">Use a seeded email ending in <code>@example.test</code> with password <code>Cordena2026!</code>.</p></details><Link href="/" className="mt-3 inline-block font-medium text-foreground hover:underline">Return to the product overview</Link></>}><SignInForm /></AuthShell>;
 }

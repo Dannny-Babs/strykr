@@ -54,7 +54,7 @@ import {
   type Status,
   type Workspace,
 } from "../lib/demo-data";
-import DealerSyncSidebar, { type SidebarItem } from "./dealersync-sidebar";
+import CordenaSidebar, { type SidebarItem } from "./cordena-sidebar";
 import {
   SidebarInset,
   SidebarProvider,
@@ -88,7 +88,7 @@ type DocumentRecord = {
   locallyStored?: boolean;
 };
 
-const DOCUMENT_STORAGE_KEY = "dealersync-documents-v1";
+const DOCUMENT_STORAGE_KEY = "cordena-documents-v1";
 
 const dealerNav: SidebarItem[] = [
   { id: "overview", label: "Overview", icon: House },
@@ -434,7 +434,7 @@ function DataTableView({ kind, onOpenImport }: { kind: "transactions" | "dealers
             <label className="control select-control"><Tag size={15} /><select aria-label={kind === "transactions" ? "Filter by type" : "Filter by region"} value={typeFilter} onChange={(event) => { setTypeFilter(event.target.value); setPage(1); }}><option value="all">{kind === "transactions" ? "Type" : "Region"}</option>{Array.from(new Set((kind === "transactions" ? transactions.map((item) => item.type) : dealers.map((item) => item.region)))).map((value) => <option key={value} value={value}>{value}</option>)}</select><CaretDown size={13} /></label>
             {kind === "transactions" && <label className="control select-control"><CalendarBlank size={15} /><select aria-label="Filter by date range" value={dateFilter} onChange={(event) => { setDateFilter(event.target.value); setPage(1); }}><option value="all">Date range</option><option value="h1">Jan–Jun 2025</option><option value="h2">Jul–Dec 2025</option></select><CaretDown size={13} /></label>}
             <button className="control clear-filter" onClick={clearFilters}><Trash size={15} /> Clear all</button>
-            <button className="control" onClick={() => { window.localStorage.setItem(`dealersync-${kind}-view`, JSON.stringify({ query, statusFilter, typeFilter, dateFilter })); setViewSaved(true); }}><Eye size={15} /> {viewSaved ? "View saved" : "Save view"}</button>
+            <button className="control" onClick={() => { window.localStorage.setItem(`cordena-${kind}-view`, JSON.stringify({ query, statusFilter, typeFilter, dateFilter })); setViewSaved(true); }}><Eye size={15} /> {viewSaved ? "View saved" : "Save view"}</button>
           </div>
         </div>
         <div className="table-wrap">{count === 0 ? <EmptyState
@@ -581,7 +581,7 @@ function ImportModule({ open, onOpenChange, onComplete }: { open: boolean; onOpe
   async function previewFile(nextFile: File) {
     setBusy(true); setError(""); setFile(nextFile); setFileName(nextFile.name);
     const form = new FormData(); form.set("file", nextFile); form.set("sourceType", "TRANSACTION_REGISTER");
-    try { const response = await fetch("/api/imports", { method: "POST", body: form, headers: { "x-dealersync-persona": "dealer_admin" } }); const body = await response.json(); if (!response.ok) throw new Error(body.error); setPreview(body); setStep(2); }
+    try { const response = await fetch("/api/imports", { method: "POST", body: form, headers: { "x-cordena-persona": "dealer_admin" } }); const body = await response.json(); if (!response.ok) throw new Error(body.error); setPreview(body); setStep(2); }
     catch (reason) { setError(reason instanceof Error ? reason.message : "The CSV could not be previewed."); }
     finally { setBusy(false); }
   }
@@ -594,7 +594,7 @@ function ImportModule({ open, onOpenChange, onComplete }: { open: boolean; onOpe
   async function commit() {
     if (!file || !preview) return; setBusy(true); setError("");
     const form = new FormData(); form.set("file", file); form.set("sourceType", "TRANSACTION_REGISTER"); form.set("mode", "commit"); form.set("mapping", JSON.stringify(preview.mapping)); form.set("dealershipId", "dealer-1"); form.set("reportingPeriodId", "period-1-2025");
-    try { const response = await fetch("/api/imports", { method: "POST", body: form, headers: { "x-dealersync-persona": "dealer_admin" } }); const body = await response.json(); if (!response.ok) throw new Error(body.error); setStep(4); onComplete(); }
+    try { const response = await fetch("/api/imports", { method: "POST", body: form, headers: { "x-cordena-persona": "dealer_admin" } }); const body = await response.json(); if (!response.ok) throw new Error(body.error); setStep(4); onComplete(); }
     catch (reason) { setError(reason instanceof Error ? reason.message : "The CSV could not be imported."); }
     finally { setBusy(false); }
   }
@@ -697,7 +697,7 @@ function PageHeader({ title, subtitle, action }: { title: string; subtitle: stri
   return <header className="page-header"><div><h1>{title}</h1><p>{subtitle} <span className="demo-label">Local workspace</span></p></div><div>{action}</div></header>;
 }
 
-export default function DealerSyncDemo({ initialView = "overview" }: { initialView?: string }) {
+export default function CordenaDemo({ initialView = "overview" }: { initialView?: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const [workspace, setWorkspace] = useState<Workspace>("dealer");
@@ -719,7 +719,7 @@ export default function DealerSyncDemo({ initialView = "overview" }: { initialVi
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch("/api/workspace?dealershipId=dealer-1", { headers: { "x-dealersync-persona": workspace === "dealer" ? "dealer_admin" : "regulator_reviewer" }, signal: controller.signal })
+    fetch("/api/workspace?dealershipId=dealer-1", { headers: { "x-cordena-persona": workspace === "dealer" ? "dealer_admin" : "regulator_reviewer" }, signal: controller.signal })
       .then(async (response) => { const body = await response.json(); if (!response.ok) throw new Error(body.error); return body; })
       .then((body) => {
         setExceptionRecords(body.exceptions);
@@ -765,7 +765,7 @@ export default function DealerSyncDemo({ initialView = "overview" }: { initialVi
         : null;
     if (!operation) { showToast("The local preview changed; use the structured response or resolution action to persist this workflow step."); return; }
     try {
-      const response = await fetch(`/api/exceptions/${id}`, { method: "PATCH", headers: { "content-type": "application/json", "x-dealersync-persona": workspace === "dealer" ? "dealer_admin" : "regulator_reviewer" }, body: JSON.stringify(operation) });
+      const response = await fetch(`/api/exceptions/${id}`, { method: "PATCH", headers: { "content-type": "application/json", "x-cordena-persona": workspace === "dealer" ? "dealer_admin" : "regulator_reviewer" }, body: JSON.stringify(operation) });
       const body = await response.json(); if (!response.ok) throw new Error(body.error); setWorkspaceRevision((current) => current + 1); showToast(update.status === "Resolved" ? "Exception resolved and appended to activity history." : "Dealer response submitted and appended to activity history.");
     } catch (reason) { setWorkspaceRevision((current) => current + 1); showToast(reason instanceof Error ? reason.message : "The exception update failed."); }
   }
@@ -777,7 +777,7 @@ export default function DealerSyncDemo({ initialView = "overview" }: { initialVi
 
   async function uploadDocuments(files: File[]) {
     try {
-      const uploaded = await Promise.all(files.map(async (file) => { const form = new FormData(); form.set("file", file); form.set("dealershipId", "dealer-1"); form.set("documentType", "SUPPORTING_EVIDENCE"); const response = await fetch("/api/documents", { method: "POST", body: form, headers: { "x-dealersync-persona": "dealer_admin" } }); const body = await response.json(); if (!response.ok) throw new Error(body.error); return { id: body.id, name: body.fileName, category: "Evidence", dealer: "Northfield Auto Group", updated: "Just now", owner: "Jordan Smith", status: "Needs review", size: formatFileSize(body.size), locallyStored: true } as DocumentRecord; }));
+      const uploaded = await Promise.all(files.map(async (file) => { const form = new FormData(); form.set("file", file); form.set("dealershipId", "dealer-1"); form.set("documentType", "SUPPORTING_EVIDENCE"); const response = await fetch("/api/documents", { method: "POST", body: form, headers: { "x-cordena-persona": "dealer_admin" } }); const body = await response.json(); if (!response.ok) throw new Error(body.error); return { id: body.id, name: body.fileName, category: "Evidence", dealer: "Northfield Auto Group", updated: "Just now", owner: "Jordan Smith", status: "Needs review", size: formatFileSize(body.size), locallyStored: true } as DocumentRecord; }));
       setDocuments((current) => {
         const next = [...uploaded, ...current];
         window.localStorage.setItem(DOCUMENT_STORAGE_KEY, JSON.stringify(next));
@@ -833,7 +833,7 @@ export default function DealerSyncDemo({ initialView = "overview" }: { initialVi
       style={{ "--sidebar-width": "272px", "--sidebar-width-icon": "64px" } as React.CSSProperties}
       className="demo-app"
     >
-      <DealerSyncSidebar
+      <CordenaSidebar
         workspace={workspace}
         nav={nav}
         view={view}

@@ -1,4 +1,4 @@
-# DealerSync product-completeness implementation status
+# Cordena product-completeness implementation status
 
 This document records what changed after the 2026-08-10 product audit and what intentionally remains for the next milestone.
 

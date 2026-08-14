@@ -16,7 +16,7 @@ export function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           <div className="max-w-sm">
             <p className="font-display text-2xl font-normal tracking-[-0.01em] text-foreground">
-              DealerSync
+              Cordena
             </p>
             <p className="mt-2 text-[13px] leading-relaxed font-light text-muted-foreground">
               VIN-level transaction reconciliation for Ontario dealerships and
@@ -46,7 +46,7 @@ export function Footer() {
           </nav>
         </div>
         <p className="mt-12 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
-          DealerSync is an early product prototype. Sample data is used for
+          Cordena is an early product prototype. Sample data is used for
           demonstration, and live regulatory-system integrations are not
           currently connected.
         </p>

@@ -36,7 +36,7 @@ export async function collectSource(source: Source): Promise<CollectedPage> {
   const fetchedAt = new Date().toISOString();
   try {
     const res = await fetch(source.url, {
-      headers: { "User-Agent": "DealerSyncResearchBot/0.1 (+https://dealersync.app)" },
+      headers: { "User-Agent": "CordenaResearchBot/0.1 (+https://cordena.app)" },
     });
     if (!res.ok) {
       return { sourceId: source.id, url: source.url, fetchedAt, status: "error", httpStatus: res.status, error: `HTTP ${res.status}` };

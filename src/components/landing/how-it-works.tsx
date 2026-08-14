@@ -38,7 +38,7 @@ export function HowItWorks() {
           eyebrow="How it works"
           eyebrowRight="Four steps"
           title="Import the records. Explain the differences. Preserve the decision."
-          description="DealerSync organizes the work around the records people already use, while keeping the final compliance decision with the people responsible for making it."
+          description="Cordena organizes the work around the records people already use, while keeping the final compliance decision with the people responsible for making it."
         />
       </Reveal>
 

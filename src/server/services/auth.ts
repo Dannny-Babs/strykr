@@ -28,7 +28,7 @@ export async function signIn(rawInput: unknown) {
   const user = db.select().from(users).where(eq(users.email, input.email)).get();
   if (!user || user.status !== "ACTIVE") throw new Error(INVALID_CREDENTIALS);
   let passwordHash = user.passwordHash;
-  if (!passwordHash && process.env.DEALERSYNC_DEV_AUTH === "true" && user.email.endsWith("@example.test") && input.password === "DealerSync2026!") {
+  if (process.env.CORDENA_DEV_AUTH === "true" && user.email.endsWith("@example.test") && input.password === "Cordena2026!" && (!passwordHash || !(await verifyPassword(input.password, passwordHash)))) {
     passwordHash = await hashPassword(input.password);
     db.update(users).set({ passwordHash, updatedAt: new Date().toISOString() }).where(eq(users.id, user.id)).run();
   }

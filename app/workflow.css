@@ -89,7 +89,7 @@ body,
   --sidebar-accent: var(--workflow-blue-wash);
 }
 
-.dealersync-brand-mark,
+.cordena-brand-mark,
 .dealer-mark { background: var(--workflow-blue); }
 .regulator-mark { background: var(--workflow-violet); }
 .profile > span { background: var(--workflow-blue); }
@@ -99,12 +99,12 @@ body,
 .text-red { color: var(--workflow-coral-strong); }
 .text-amber { color: var(--workflow-amber-strong); }
 
-.dealersync-sidebar [data-sidebar="menu-button"][data-active="true"] {
+.cordena-sidebar [data-sidebar="menu-button"][data-active="true"] {
   color: var(--workflow-blue-strong);
   background: var(--workflow-blue-wash);
 }
 
-.dealersync-sidebar [data-sidebar="menu-button"][data-active="true"] svg {
+.cordena-sidebar [data-sidebar="menu-button"][data-active="true"] svg {
   color: var(--workflow-blue);
 }
 

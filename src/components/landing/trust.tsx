@@ -17,7 +17,7 @@ export function Trust() {
         <SectionHeading
           align="center"
           title="Automation helps organize the work. People make the decision."
-          description="DealerSync does not turn a reconciliation flag into a regulatory finding. It gives dealerships and reviewers a clearer way to inspect records, exchange evidence, and document what happened."
+          description="Cordena does not turn a reconciliation flag into a regulatory finding. It gives dealerships and reviewers a clearer way to inspect records, exchange evidence, and document what happened."
         />
       </Reveal>
       <Reveal delay={120}>

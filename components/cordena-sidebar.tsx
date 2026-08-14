@@ -35,7 +35,7 @@ export type SidebarItem = {
   icon: SidebarIcon;
 };
 
-type DealerSyncSidebarProps = {
+type CordenaSidebarProps = {
   workspace: Workspace;
   nav: SidebarItem[];
   view: string;
@@ -44,14 +44,14 @@ type DealerSyncSidebarProps = {
   onWorkspaceChange: (workspace: Workspace) => void;
 };
 
-export default function DealerSyncSidebar({
+export default function CordenaSidebar({
   workspace,
   nav,
   view,
   exceptionCount,
   onNavigate,
   onWorkspaceChange,
-}: DealerSyncSidebarProps) {
+}: CordenaSidebarProps) {
   const [workspaceMenuOpen, setWorkspaceMenuOpen] = useState(false);
   const { setOpenMobile } = useSidebar();
   const primary = nav.slice(0, workspace === "dealer" ? 4 : 5);
@@ -87,23 +87,23 @@ export default function DealerSyncSidebar({
   }
 
   return (
-    <Sidebar collapsible="icon" variant="sidebar" className="dealersync-sidebar">
-      <SidebarHeader className="dealersync-sidebar-header">
+    <Sidebar collapsible="icon" variant="sidebar" className="cordena-sidebar">
+      <SidebarHeader className="cordena-sidebar-header">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" tooltip="DealerSync" className="dealersync-brand">
-              <span className="dealersync-brand-mark" aria-hidden="true">
+            <SidebarMenuButton size="lg" tooltip="Cordena" className="cordena-brand">
+              <span className="cordena-brand-mark" aria-hidden="true">
                 <ShieldCheck size={20} weight="fill" />
               </span>
-              <span className="dealersync-brand-copy">
-                <strong>DealerSync</strong>
+              <span className="cordena-brand-copy">
+                <strong>Cordena</strong>
                 <small>Reconciliation workspace</small>
               </span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
 
-        <div className="dealersync-workspace-picker">
+        <div className="cordena-workspace-picker">
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton
@@ -113,17 +113,17 @@ export default function DealerSyncSidebar({
                 isActive={workspaceMenuOpen}
                 onClick={() => setWorkspaceMenuOpen((current) => !current)}
                 aria-expanded={workspaceMenuOpen}
-                className="dealersync-workspace-button"
+                className="cordena-workspace-button"
               >
                 <Buildings size={18} />
-                <span className="dealersync-workspace-copy">
+                <span className="cordena-workspace-copy">
                   <strong>{workspace === "dealer" ? "Northfield Auto Group" : "Ontario review cohort"}</strong>
                   <small>{workspace === "dealer" ? "Ontario · ON-041023" : "142 dealerships"}</small>
                 </span>
-                <CaretDown size={14} className="dealersync-workspace-chevron" />
+                <CaretDown size={14} className="cordena-workspace-chevron" />
               </SidebarMenuButton>
               {workspaceMenuOpen && (
-                <div className="dealersync-workspace-menu" role="menu">
+                <div className="cordena-workspace-menu" role="menu">
                   <p>Switch workspace</p>
                   <button
                     type="button"

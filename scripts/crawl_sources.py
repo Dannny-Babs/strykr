@@ -1,5 +1,5 @@
 """
-Crawls the DealerSync tier-1 source registry with Crawl4AI and verifies the
+Crawls the Cordena tier-1 source registry with Crawl4AI and verifies the
 factual claims already seeded in data/research-findings.json.
 
 This mirrors lib/sources.ts (kept in sync by hand — it's a one-off
@@ -111,7 +111,7 @@ async def extract_pdf_text(url: str) -> tuple[str, int]:
     """Crawl4AI's browser strategy can't read Chromium's built-in PDF viewer as
     text, so PDFs are downloaded directly and parsed with pdfplumber instead."""
     async with httpx.AsyncClient(follow_redirects=True, timeout=30.0) as client:
-        resp = await client.get(url, headers={"User-Agent": "DealerSyncResearchBot/0.1"})
+        resp = await client.get(url, headers={"User-Agent": "CordenaResearchBot/0.1"})
         resp.raise_for_status()
         status_code = resp.status_code
         pdf_bytes = resp.content

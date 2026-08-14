@@ -1,6 +1,6 @@
-# DealerSync product gap analysis
+# Cordena product gap analysis
 
-Audit date: 2026-08-10. Scope: every current dealer and reviewer product route, desktop screenshots at the active 1280px browser viewport, a 390x844 reviewer mobile pass, DOM/semantic inspection, and current service/schema review. Evidence was captured under `/tmp/dealersync-product-audit-2026-08-10/`.
+Audit date: 2026-08-10. Scope: every current dealer and reviewer product route, desktop screenshots at the active 1280px browser viewport, a 390x844 reviewer mobile pass, DOM/semantic inspection, and current service/schema review. Evidence was captured under `/tmp/cordena-product-audit-2026-08-10/`.
 
 ## Current health
 

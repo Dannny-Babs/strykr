@@ -1,6 +1,6 @@
-# DealerSync
+# Cordena
 
-DealerSync is a local-first vehicle transaction reconciliation and compliance workspace. It ingests dealer transaction records and registration-style evidence, normalizes them around VIN, runs deterministic/versioned rules, creates explainable exceptions, and preserves human responses, evidence, resolutions, and activity.
+Cordena is a local-first vehicle transaction reconciliation and compliance workspace. It ingests dealer transaction records and registration-style evidence, normalizes them around VIN, runs deterministic/versioned rules, creates explainable exceptions, and preserves human responses, evidence, resolutions, and activity.
 
 It does not determine wrongdoing. It presents discrepancies for review.
 
@@ -66,8 +66,8 @@ npm run python:process      # emit a validated product extraction envelope
 - `DATABASE_URL`: local SQLite file for this adapter.
 - `DOCUMENT_STORAGE_PATH`: protected local evidence directory.
 - `APP_URL`: application base URL.
-- `DEALERSYNC_DEV_AUTH`: enables local persona resolution. This is not production authentication.
-- `DEALERSYNC_DEFAULT_PERSONA`: default seeded persona.
+- `CORDENA_DEV_AUTH`: enables local persona resolution. This is not production authentication.
+- `CORDENA_DEFAULT_PERSONA`: default seeded persona.
 - `PYTHON_EXPORT_PATH`: future Python adapter input location.
 - `AI_PROVIDER_API_KEY`: reserved; no LLM compliance decision path exists.
 
@@ -96,7 +96,7 @@ All results include the triggering values, explanation, severity, recommended ac
 
 ## Python integration
 
-The existing NLP scripts analyze a regulatory/research corpus; they do not contain vehicle transaction evidence. `npm run python:process` therefore emits a valid `dealersync-extraction-v1` envelope with zero VIN records instead of manufacturing them. Future product extractors must follow [the documented contract](docs/python-extraction-contract.md), and their output enters the same normalization/import boundary as other sources.
+The existing NLP scripts analyze a regulatory/research corpus; they do not contain vehicle transaction evidence. `npm run python:process` therefore emits a valid `cordena-extraction-v1` envelope with zero VIN records instead of manufacturing them. Future product extractors must follow [the documented contract](docs/python-extraction-contract.md), and their output enters the same normalization/import boundary as other sources.
 
 ## Testing and limitations
 

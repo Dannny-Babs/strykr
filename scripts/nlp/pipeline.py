@@ -1,5 +1,5 @@
 """
-NLP layer for the DealerSync research corpus: embeddings for dedup/clustering,
+NLP layer for the Cordena research corpus: embeddings for dedup/clustering,
 zero-shot entailment classification against the pain taxonomy, and sentiment
 baselining — per the deep-research report's "Analytics and NLP methods"
 section, scoped to what's actually installed locally rather than pulling in

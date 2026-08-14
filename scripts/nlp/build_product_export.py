@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / "data" / "python-extraction.json"
 
 payload = {
-    "schemaVersion": "dealersync-extraction-v1",
+    "schemaVersion": "cordena-extraction-v1",
     "generatedAt": datetime.now(timezone.utc).isoformat(),
     "source": {
         "name": "existing-research-nlp-pipeline",

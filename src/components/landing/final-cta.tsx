@@ -14,7 +14,7 @@ export function FinalCta() {
             Make every transaction easier to explain.
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-[15px] leading-relaxed font-light text-white/55">
-            See how DealerSync connects source records, exceptions, evidence,
+            See how Cordena connects source records, exceptions, evidence,
             and decisions in one workspace.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

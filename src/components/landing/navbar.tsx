@@ -35,7 +35,7 @@ export function Navbar() {
           href="/"
           className="text-lg font-semibold tracking-tight text-foreground"
         >
-          DealerSync
+          Cordena
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">

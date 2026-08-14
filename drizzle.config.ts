@@ -5,7 +5,7 @@ export default defineConfig({
   schema: "./src/server/db/schema.ts",
   out: "./drizzle",
   dbCredentials: {
-    url: process.env.DATABASE_URL ?? "./data/dealersync.db",
+    url: process.env.DATABASE_URL ?? "./data/cordena.db",
   },
   strict: true,
 });

@@ -1,10 +1,10 @@
-# DealerSync product requirements
+# Cordena product requirements
 
 Status: local-pilot product requirements, updated 2026-08-10.
 
 ## 1. Product purpose
 
-DealerSync is an operational compliance workspace for Ontario motor-vehicle dealerships and regulatory reviewers. It reconciles dealership transaction records with registration-style records, explains discrepancies, preserves source provenance, collects dealer responses and evidence, and supports reviewer decisions without presenting automated flags as regulatory findings.
+Cordena is an operational compliance workspace for Ontario motor-vehicle dealerships and regulatory reviewers. It reconciles dealership transaction records with registration-style records, explains discrepancies, preserves source provenance, collects dealer responses and evidence, and supports reviewer decisions without presenting automated flags as regulatory findings.
 
 ## 2. User types and goals
 

@@ -1,4 +1,4 @@
-# DealerSync user story matrix
+# Cordena user story matrix
 
 Legend: **Complete** = usable end to end in primary product routes; **Partial** = domain/service or surface exists but workflow is incomplete; **Gap** = absent or inert.
 

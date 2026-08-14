@@ -1,4 +1,4 @@
-const DATABASE_NAME = "dealersync-local-workspace";
+const DATABASE_NAME = "cordena-local-workspace";
 const DATABASE_VERSION = 1;
 const FILE_STORE = "document-files";
 

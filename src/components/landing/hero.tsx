@@ -10,7 +10,7 @@ export function Hero() {
             Know what happened in every vehicle transaction.
           </h1>
           <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed font-light text-pretty text-muted-foreground sm:text-lg">
-            DealerSync brings transaction records, registration-style data,
+            Cordena brings transaction records, registration-style data,
             explanations, and supporting evidence into one reviewable workspace
             for dealerships and regulatory reviewers.
           </p>

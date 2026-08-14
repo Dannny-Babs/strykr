@@ -55,7 +55,7 @@ export function ProductPreview() {
             <span className="size-2.5 rounded-full bg-warning-soft" />
             <span className="size-2.5 rounded-full bg-success-soft" />
             <span className="ml-3 hidden rounded-md border border-border bg-card px-3 py-1 font-mono text-xs text-muted-foreground sm:block">
-              dealersync.app/dealer/dashboard
+              cordena.app/dealer/dashboard
             </span>
           </div>
 

@@ -1,4 +1,4 @@
-# DealerSync architecture
+# Cordena architecture
 
 ## Product lifecycle
 
@@ -26,7 +26,7 @@ The engine does not infer wrongdoing, silently merge uncertain records, or treat
 
 ## Authentication and authorization
 
-Local requests use one of four seeded personas through `x-dealersync-persona`: `regulator_reviewer`, `dealer_admin`, `dealer_user`, or `system_admin`. This is explicitly development-only. Services call `assertCan` and enforce a dealer user's `dealershipId` regardless of what the UI sends.
+Local requests use one of four seeded personas through `x-cordena-persona`: `regulator_reviewer`, `dealer_admin`, `dealer_user`, or `system_admin`. This is explicitly development-only. Services call `assertCan` and enforce a dealer user's `dealershipId` regardless of what the UI sends.
 
 Production must replace `src/server/auth/context.ts` with authenticated sessions from the selected provider while keeping the `Actor` contract.
 

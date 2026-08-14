@@ -23,7 +23,7 @@ export default function ResearchPage() {
     <div className="min-h-screen bg-background font-sans text-secondary-foreground">
       <header className="border-b bg-white">
         <div className="mx-auto max-w-5xl px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="text-base font-medium tracking-[-0.15px] text-foreground">DealerSync</Link>
+          <Link href="/" className="text-base font-medium tracking-[-0.15px] text-foreground">Cordena</Link>
           <nav className="flex items-center gap-6 text-sm">
             <Link href="/analysis" className="hover:text-foreground">NLP Analysis</Link>
             <Link href="/" className="hover:text-foreground">Back to home</Link>

@@ -19,11 +19,11 @@ const personas: Record<string, string> = {
 export async function getActor(): Promise<Actor> {
   const sessionUser = await getCurrentSessionUser();
   if (sessionUser) return { id: sessionUser.id, organizationId: sessionUser.organizationId, dealershipId: sessionUser.dealershipId, role: sessionUser.role };
-  if (process.env.NODE_ENV === "production" && process.env.DEALERSYNC_DEV_AUTH !== "true") {
+  if (process.env.NODE_ENV === "production" && process.env.CORDENA_DEV_AUTH !== "true") {
     throw new Error("Production authentication provider is not configured.");
   }
   const requestHeaders = await headers();
-  const persona = requestHeaders.get("x-dealersync-persona") ?? process.env.DEALERSYNC_DEFAULT_PERSONA ?? "dealer_admin";
+  const persona = requestHeaders.get("x-cordena-persona") ?? process.env.CORDENA_DEFAULT_PERSONA ?? "dealer_admin";
   const userId = personas[persona];
   if (!userId) throw new Error("Unknown development persona.");
   const user = db.select().from(users).where(eq(users.id, userId)).get();
