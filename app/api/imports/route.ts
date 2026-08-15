@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     if (!file.name.toLowerCase().endsWith(".csv") && file.type !== "text/csv") return Response.json({ error: "Only CSV imports are supported in this phase." }, { status: 415 });
     const sourceType = form.get("sourceType") === "REGISTRATION_RECORD" ? "REGISTRATION_RECORD" : "TRANSACTION_REGISTER";
     const csv = await file.text(); const mappingText = String(form.get("mapping") ?? "{}"); const mapping = JSON.parse(mappingText);
-    if (form.get("mode") === "commit") return Response.json(commitImport({ sourceType, csv, mapping, fileName: file.name.replace(/[^a-zA-Z0-9._-]/g, "_"), dealershipId: String(form.get("dealershipId") ?? actor.dealershipId ?? ""), reportingPeriodId: String(form.get("reportingPeriodId") ?? "period-1-2025"), actor }), { status: 201 });
+    if (form.get("mode") === "commit") return Response.json(await commitImport({ sourceType, csv, mapping, fileName: file.name.replace(/[^a-zA-Z0-9._-]/g, "_"), dealershipId: String(form.get("dealershipId") ?? actor.dealershipId ?? ""), reportingPeriodId: String(form.get("reportingPeriodId") ?? "period-1-2025"), actor }), { status: 201 });
     return Response.json(previewImport({ sourceType, csv, mapping }));
   } catch (error) { return apiError(error); }
 }

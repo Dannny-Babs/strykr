@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  agentRules: false,
   devIndicators: false,
-  serverExternalPackages: ["better-sqlite3"],
   images: {
     remotePatterns: [
       {

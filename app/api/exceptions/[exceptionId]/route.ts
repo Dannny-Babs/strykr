@@ -10,6 +10,6 @@ const requestSchema = z.discriminatedUnion("operation", [
 ]);
 
 export async function PATCH(request: Request, context: { params: Promise<{ exceptionId: string }> }) {
-  try { const actor = await getActor(); const { exceptionId } = await context.params; const body = requestSchema.parse(await request.json()); return Response.json(body.operation === "submit_response" ? submitDealerResponse({ exceptionId, explanationCategory: body.explanationCategory, explanation: body.explanation, actor }) : transitionException({ exceptionId, status: body.status, resolutionType: body.resolutionType, resolutionReason: body.resolutionReason, actor })); }
+  try { const actor = await getActor(); const { exceptionId } = await context.params; const body = requestSchema.parse(await request.json()); return Response.json(body.operation === "submit_response" ? await submitDealerResponse({ exceptionId, explanationCategory: body.explanationCategory, explanation: body.explanation, actor }) : await transitionException({ exceptionId, status: body.status, resolutionType: body.resolutionType, resolutionReason: body.resolutionReason, actor })); }
   catch (error) { return apiError(error); }
 }

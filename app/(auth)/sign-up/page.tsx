@@ -6,5 +6,5 @@ import { getCurrentSessionUser } from "@/server/auth/context";
 
 export default async function SignUpPage() {
   const actor = await getCurrentSessionUser(); if (actor) redirect(destinationForActor(actor.role, actor.onboardingComplete));
-  return <AuthShell title="Create your account" description="Your account type determines the product workspace you can access. It cannot be switched from inside the application."><SignUpForm /></AuthShell>;
+  return <AuthShell title="Create your account" description="Create a dealership workspace. Reviewer access is provisioned by invitation."><SignUpForm allowReviewer={process.env.NODE_ENV !== "production"} /></AuthShell>;
 }

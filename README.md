@@ -1,6 +1,6 @@
 # Cordena
 
-Cordena is a local-first vehicle transaction reconciliation and compliance workspace. It ingests dealer transaction records and registration-style evidence, normalizes them around VIN, runs deterministic/versioned rules, creates explainable exceptions, and preserves human responses, evidence, resolutions, and activity.
+Cordena is a vehicle transaction reconciliation and compliance workspace. It ingests dealer transaction records and registration-style evidence, normalizes them around VIN, runs deterministic/versioned rules, creates explainable exceptions, and preserves human responses, evidence, resolutions, and activity.
 
 It does not determine wrongdoing. It presents discrepancies for review.
 
@@ -8,23 +8,24 @@ It does not determine wrongdoing. It presents discrepancies for review.
 
 The implemented pilot foundation supports:
 
-- SQLite persistence with deterministic seeds and migrations.
+- PostgreSQL persistence with deterministic seeds and committed migrations.
 - CSV transaction-register and registration-record ingestion.
 - Automatic column suggestions, explicit mapping, validation, normalization, deduplication, and raw-row provenance.
 - VIN matching and ten deterministic reconciliation rules.
 - Immutable reconciliation runs and match/exception history.
 - Development personas with backend RBAC and dealership isolation.
-- Dealer responses, reviewer resolutions, protected local document uploads/downloads, activity events, and persisted CSV reporting.
+- Dealer responses, reviewer resolutions, private object-storage uploads/downloads, activity events, and persisted CSV reporting.
 - Existing research collection/NLP tooling through a documented product export boundary.
 
-It does not include live OMVIC/MTO access, dealer DMS connectors, enterprise SSO, automated email, cloud infrastructure, government identity, or security certification.
+It does not include live OMVIC/MTO access, dealer DMS connectors, enterprise SSO, government identity, or security certification. Supabase Auth is integrated, but public production email delivery still requires custom SMTP credentials.
 
 See [repository audit and remaining gaps](docs/gap-analysis.md) and [architecture details](docs/architecture.md).
 
 ## Stack
 
-- Next.js 15 App Router, React 19, TypeScript, Tailwind CSS.
-- Drizzle ORM with `better-sqlite3` for local persistence.
+- Next.js 16 App Router, React 19, TypeScript, Tailwind CSS.
+- Drizzle ORM with pooled PostgreSQL connections to Neon.
+- Private Vercel Blob storage for production evidence documents, with a local filesystem fallback in development.
 - Zod for request/connector contracts and `csv-parse` for ingestion.
 - Vitest for framework-independent domain tests.
 - Python/Crawl4AI/sentence-transformers tooling remains an optional, separate research pipeline.
@@ -35,9 +36,10 @@ Requirements: Node.js 22+, npm, and Python 3 only if running the existing resear
 
 ```bash
 npm install
-cp .env.example .env.local
+npx vercel@latest link
+npx vercel@latest env pull .env.local --yes
 npm run db:migrate
-npm run seed
+npm run db:bootstrap
 npm run dev
 ```
 
@@ -49,8 +51,8 @@ Open `http://localhost:3000/demo`. The seed creates 25 dealerships, 2,000 dealer
 npm run dev                 # Next.js development server
 npm run db:generate         # generate SQL after a schema change
 npm run db:migrate          # apply committed migrations
+npm run db:bootstrap        # idempotent production rules/fee configuration
 npm run seed                # deterministic local seed and initial reconciliation
-npm run reset-db            # remove local SQLite files (then migrate + seed)
 npm run reconcile           # new immutable run for dealer-1 / period-1-2025
 npm run test                # domain unit tests
 npm run typecheck
@@ -63,10 +65,15 @@ npm run python:process      # emit a validated product extraction envelope
 
 ## Environment variables
 
-- `DATABASE_URL`: local SQLite file for this adapter.
-- `DOCUMENT_STORAGE_PATH`: protected local evidence directory.
-- `APP_URL`: application base URL.
-- `CORDENA_DEV_AUTH`: enables local persona resolution. This is not production authentication.
+- `DATABASE_URL`: pooled PostgreSQL URL for application traffic.
+- `DATABASE_URL_UNPOOLED`: direct PostgreSQL URL used only for migrations.
+- `BLOB_READ_WRITE_TOKEN`: private Vercel Blob access; required in production.
+- `NEXT_PUBLIC_SUPABASE_URL`: Cordena's hosted Supabase project URL.
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`: the modern publishable browser/server key; RLS remains the data boundary.
+- `NEXT_PUBLIC_APP_URL`: canonical application origin used as the fallback for authentication redirects.
+- `MALWARE_SCAN_URL` and `MALWARE_SCAN_API_TOKEN`: optional remote scanner endpoint and credential.
+- `MALWARE_SCAN_REQUIRED`: when `true`, evidence upload fails closed unless the remote scanner returns a clean verdict.
+- `CORDENA_DEV_AUTH`: enables local persona resolution only when no Supabase session exists. This is never production authentication.
 - `CORDENA_DEFAULT_PERSONA`: default seeded persona.
 - `PYTHON_EXPORT_PATH`: future Python adapter input location.
 - `AI_PROVIDER_API_KEY`: reserved; no LLM compliance decision path exists.
@@ -98,10 +105,18 @@ All results include the triggering values, explanation, severity, recommended ac
 
 The existing NLP scripts analyze a regulatory/research corpus; they do not contain vehicle transaction evidence. `npm run python:process` therefore emits a valid `cordena-extraction-v1` envelope with zero VIN records instead of manufacturing them. Future product extractors must follow [the documented contract](docs/python-extraction-contract.md), and their output enters the same normalization/import boundary as other sources.
 
+## Production infrastructure
+
+The Vercel project uses Neon Postgres for product state, Supabase Auth for verified identity and secure cookie sessions, and a private Vercel Blob store for evidence files. Application queries use the pooled database URL; migrations use the direct URL. Reviewer accounts are invite-only, while dealership accounts can self-onboard after Supabase email verification. A unique Supabase user ID links each identity to its Neon organization and role; authorization still runs in Cordena's server services. Auth endpoint and upload limits are shared through Postgres rather than process memory.
+
+Evidence is private, fingerprinted with SHA-256, locally inspected for executable signatures, MIME mismatch, invalid text, EICAR content, and macro-enabled Office packages, and blocked from download unless its security status is clean. Configure a remote scanning service and set `MALWARE_SCAN_REQUIRED=true` for fail-closed external malware scanning.
+
+Do not run seed data against a populated database. Test schema changes on a Neon branch before applying them to production.
+
 ## Testing and limitations
 
 Tests cover VIN/value normalization, exact matching, date variance, duplicates, missing records, fee rules, evidence requirements, period classification, rule versioning/determinism, exception transitions, permissions/isolation, and import validation.
 
 The existing UI still contains some demonstration-oriented tables and generic pages. Persisted dashboards, exceptions, imports, documents, and CSV reports now work through services/APIs, but dedicated audit finding, rejected-row inspection, correction history, historical-run comparison, printable reports, and Playwright flows remain the next product milestone.
 
-The original critical Next.js advisory was removed by upgrading to Next 15.5.23. The latest production audit still reports five high transitive findings and proposes a Next 16.3 major upgrade for the Next-bundled paths. This is a documented deployment blocker, not a production-ready security posture.
+Next.js is upgraded to 16.3.1 and `npm audit --omit=dev` reports zero production vulnerabilities. Four moderate findings remain through Drizzle Kit's development-only esbuild loader; npm's proposed force fix is a breaking Drizzle Kit downgrade and is intentionally not applied.

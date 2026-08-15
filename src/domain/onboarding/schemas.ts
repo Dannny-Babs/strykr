@@ -12,6 +12,18 @@ export const signUpSchema = z.object({
   accountType: z.enum(["dealer", "reviewer"]),
 });
 
+export const emailSchema = z.object({
+  email: z.email("Enter a valid email address.").transform((value) => value.trim().toLowerCase()),
+});
+
+export const tokenSchema = z.object({ token: z.string().min(32).max(256) });
+
+export const passwordResetSchema = tokenSchema.extend({
+  password: z.string().min(12, "Use at least 12 characters.").max(128).regex(/[A-Z]/, "Add an uppercase letter.").regex(/[a-z]/, "Add a lowercase letter.").regex(/[0-9]/, "Add a number."),
+});
+
+export const passwordUpdateSchema = passwordResetSchema.omit({ token: true });
+
 export const dealerOnboardingSchema = z.object({
   tradeName: z.string().trim().min(2, "Enter the dealership name.").max(140),
   legalName: z.string().trim().min(2, "Enter the legal business name.").max(180),
