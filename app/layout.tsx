@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Cordena – VIN-Level Transaction Reconciliation",
   description:
     "Cordena connects vehicle transaction records, evidence, exceptions, and review decisions in one explainable compliance ledger.",
+  icons: { icon: [{ url: "/icon.svg", type: "image/svg+xml" }], shortcut: "/icon.svg", apple: "/apple-icon.svg" },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",

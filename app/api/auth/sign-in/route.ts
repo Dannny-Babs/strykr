@@ -1,8 +1,8 @@
-import { setSessionCookie } from "@/server/auth/cookie";
 import { apiError } from "@/server/http/errors";
+import { enforceRateLimit } from "@/server/security/rate-limit";
 import { signIn } from "@/server/services/auth";
 
 export async function POST(request: Request) {
-  try { const result = await signIn(await request.json()); await setSessionCookie(result.token, result.expiresAt); return Response.json({ destination: result.destination, user: result.user }); }
+  try { const body = await request.json(); await enforceRateLimit(request, { scope: "auth-sign-in", limit: 10, windowMs: 15 * 60 * 1000, discriminator: typeof body?.email === "string" ? body.email : "" }); return Response.json(await signIn(body)); }
   catch (error) { return apiError(error); }
 }

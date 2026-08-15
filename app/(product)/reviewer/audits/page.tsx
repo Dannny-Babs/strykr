@@ -17,7 +17,7 @@ const sorts = [
 export default async function ReviewerAuditsPage({ searchParams }: { searchParams: Promise<{ q?: string; sort?: string }> }) {
   await requireProductActor(["REGULATOR_REVIEWER"]);
   const params = await searchParams;
-  const data = getReviewerProductData();
+  const data = await getReviewerProductData();
   const query = params.q?.trim().toLowerCase();
   const sort = parseDatasetSort("reviewerAudits", params.sort);
   const rows = data.audits

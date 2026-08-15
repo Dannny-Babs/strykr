@@ -188,16 +188,16 @@ The permission matrix in `src/domain/auth/permissions.ts` is authoritative. Rout
 
 ## 12. Current limitations
 
-- Local SQLite and local files are pilot infrastructure, not multi-user production storage.
+- Neon Postgres and private Vercel Blob provide shared production persistence; backup/restore drills, retention controls, and malware scanning remain pilot-readiness requirements.
 - Reviewer organization-to-dealership assignment is not yet modeled; current seeded reviewer access is portfolio-wide.
 - Production identity, malware scanning, retention, backups, observability, rate limiting, and concurrency controls remain outstanding.
-- No live OMVIC, MTO, DMS, accounting, email, or object-storage integration exists.
+- No live OMVIC, MTO, DMS, or accounting integration exists. Supabase Auth and private Vercel Blob are connected; production Auth email remains gated on custom SMTP.
 - Regulatory rules, terminology, permissions, fee schedules, and outputs require validation by authorized Ontario stakeholders.
 - Automated reconciliation is not a compliance certification or final determination.
 
 ## 13. Future integration boundaries
 
-- Identity provider behind the session/auth service.
+- Reviewer invitation and administration on top of the connected Supabase identity provider.
 - PostgreSQL behind the Drizzle repository boundary.
 - Object storage and scanning behind the document storage interface.
 - Registration, DMS, and accounting connectors feeding immutable import batches.

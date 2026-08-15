@@ -22,6 +22,7 @@ export function SignInForm() {
       {error && <Alert role="alert" variant="destructive"><AlertCircle className="size-4" /><AlertDescription>{error}</AlertDescription></Alert>}
       <div className="space-y-2"><Label htmlFor="email">Work email</Label><Input id="email" type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@company.ca" required /></div>
       <div className="space-y-2"><Label htmlFor="password">Password</Label><Input id="password" type="password" autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your password" required /></div>
+      <div className="text-right"><Link href="/forgot-password" className="text-sm font-medium text-foreground underline-offset-4 hover:underline">Forgot password?</Link></div>
       <Button className="w-full" size="form" type="submit" disabled={busy}>{busy ? "Signing in…" : <>Sign in <ArrowRight className="size-4" /></>}</Button>
       <p className="text-center text-sm text-muted-foreground">New to Cordena? <Link href="/sign-up" className="font-medium text-foreground underline-offset-4 hover:underline">Create an account</Link></p>
     </form>

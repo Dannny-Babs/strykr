@@ -10,7 +10,7 @@ export async function GET(_request: Request, context: { params: Promise<{ entity
   try {
     const actor = await getActor();
     const params = await context.params;
-    return Response.json(getEntityDetail(actor, typeSchema.parse(params.entityType), params.entityId));
+    return Response.json(await getEntityDetail(actor, typeSchema.parse(params.entityType), params.entityId));
   } catch (error) {
     return apiError(error);
   }

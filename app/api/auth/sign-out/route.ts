@@ -1,7 +1,7 @@
-import { cookies } from "next/headers";
-import { clearSessionCookie } from "@/server/auth/cookie";
-import { destroySession, SESSION_COOKIE } from "@/server/auth/session";
+import { createSupabaseServerClient } from "@/server/supabase/server";
 
 export async function POST() {
-  const cookieStore = await cookies(); destroySession(cookieStore.get(SESSION_COOKIE)?.value); await clearSessionCookie(); return Response.json({ destination: "/sign-in" });
+  const supabase = await createSupabaseServerClient();
+  await supabase.auth.signOut({ scope: "local" });
+  return Response.json({ destination: "/sign-in" });
 }
